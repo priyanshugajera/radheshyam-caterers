@@ -1,0 +1,40 @@
+/* Part 9.1 - Luxury Gallery CSS */
+#gallery{position:relative;padding:180px 0;background:transparent;overflow:hidden;padding-top:0 !important;
+    margin-top:0 !important;}
+.gallery-wrapper{width:min(1600px,94%);margin:auto;position:relative;z-index:2;}
+.gallery-heading{text-align:center;margin-bottom:60px;}
+.gallery-heading .sub-title{color:#d4af37;letter-spacing:8px;font:600 15px Poppins,sans-serif;text-transform:uppercase;}
+.gallery-heading h2{margin-top:18px;color:#f7df84;font:700 clamp(54px,6vw,88px) Cinzel,serif;text-shadow:0 0 30px rgba(212,175,55,.35);}
+.gallery-track{display:flex;gap:28px;overflow-x:auto;scroll-behavior:smooth;scroll-snap-type:x mandatory;padding:30px 20px;}
+.gallery-track::-webkit-scrollbar{height:10px;}
+.gallery-track::-webkit-scrollbar-thumb{background:#d4af37;border-radius:20px;}
+.gallery-card{
+
+flex:0 0 340px;
+
+height:420px;
+
+position:relative;
+
+border-radius:24px;
+
+overflow:hidden;
+
+background:rgba(20,20,20,.75);
+
+border:1px solid rgba(212,175,55,.35);
+
+transition:.45s;
+
+}
+.gallery-card:hover{transform:translateY(-10px) scale(1.03);}
+.gallery-card img{
+
+width:100%;
+
+height:100%;
+
+display:block;
+
+object-fit:contain;
+}

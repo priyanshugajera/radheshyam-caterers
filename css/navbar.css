@@ -1,0 +1,857 @@
+
+/* ==================================================
+   NAVBAR V2 - Reference Inspired
+================================================== */
+.glass-nav{
+
+    position:fixed;
+
+    top:18px;
+
+    left:2.5%;
+
+    transform:translateY(0);
+
+    width:95%;
+
+    max-width:1500px;
+
+    height:80px;
+
+    display:flex;
+
+    align-items:center;
+
+    background:rgba(15,15,15,.75);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(212,175,55,.18);
+
+    border-radius:60px;
+
+    padding:0 5px;
+
+    z-index:9999;
+
+    transition:
+        transform .45s ease,
+        opacity .45s ease;
+
+    opacity:1;
+	
+}
+
+.glass-nav::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(110deg,
+transparent 20%,
+rgba(255,255,255,.08) 50%,
+transparent 80%);
+transform:translateX(-140%);
+animation:shine 8s linear infinite;
+pointer-events:none;
+}
+
+.glass-nav::after{
+content:"";
+position:absolute;
+left:24px;
+right:24px;
+bottom:0;
+height:1px;
+background:linear-gradient(90deg,transparent,#d4af37,transparent);
+}
+
+.logo{
+    width:220px;
+    min-width:220px;
+    flex:0 0 220px;
+
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+}
+
+.logo img{
+    height:90px;
+    width:70%;
+}
+.glass-nav nav{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:45px;
+
+}
+
+.glass-nav nav a{
+position:relative;
+padding:14px 18px;
+font:600 16px Poppins,sans-serif;
+color:#fff;
+border-radius:40px;
+transition:.35s;
+}
+
+.glass-nav nav a:hover,
+.glass-nav nav a.active{
+color:#f6df8f;
+}
+
+.glass-nav nav a.active::after{
+content:"";
+position:absolute;
+left:20%;
+right:20%;
+bottom:6px;
+height:3px;
+border-radius:20px;
+background:linear-gradient(90deg,#fff3b0,#d4af37,#fff3b0);
+box-shadow:0 0 12px rgba(212,175,55,.7);
+}
+
+.nav-actions{
+    display:flex;
+    align-items:center;
+	justify-content:center;          
+    gap:14px;
+	right: 50%;
+    min-width:260px;
+    flex-shrink:0;
+}
+
+.themeBtn{
+width:52px;
+height:52px;
+border-radius:50%;
+background:#141414;
+border:1px solid rgba(212,175,55,.22);
+color:#d4af37;
+font-size:20px;
+display:grid;
+place-items:center;
+transition:.3s;
+}
+
+.themeBtn:hover{
+transform:rotate(30deg);
+box-shadow:0 0 18px rgba(212,175,55,.45);
+}
+
+.nav-actions .primaryBtn{
+height:42px;
+padding:0 18px;
+border-radius:16px;
+font-weight:700;
+font-size:15px;
+background:linear-gradient(135deg,#f7df84,#d4af37,#b98728);
+color:#111;
+white-space:nowrap;
+box-shadow:0 12px 25px rgba(212,175,55,.3);
+}
+
+.nav-actions .primaryBtn:hover{
+transform:translateY(-2px);
+box-shadow:0 18px 35px rgba(212,175,55,.45);
+}
+
+@keyframes shine{
+to{transform:translateX(140%);}
+}
+
+@media(max-width:1100px){
+.glass-nav{
+grid-template-columns:180px 1fr;
+}
+.nav-actions .primaryBtn{display:none;}
+.glass-nav nav{
+gap:2px;
+}
+.glass-nav nav a{
+padding:12px;
+font-size:14px;
+}
+}
+/* =========================================================
+   MOBILE PREMIUM NAVBAR
+   DESKTOP COMPLETELY UNCHANGED
+========================================================= */
+/* =========================================================
+   MOBILE PREMIUM GLASS NAVBAR
+   DESKTOP = 100% UNTOUCHED
+========================================================= */
+
+.mobileMenuBtn{
+    display:none;
+}
+
+
+/* =========================================================
+   ONLY MOBILE
+========================================================= */
+
+@media only screen and (max-width:768px){
+
+    /* -----------------------------------------------------
+       NAVBAR
+    ----------------------------------------------------- */
+
+    .glass-nav{
+
+        position:fixed !important;
+
+        top:12px !important;
+        left:50% !important;
+
+        width:calc(100% - 20px) !important;
+        max-width:none !important;
+
+        height:70px !important;
+
+        padding:0 10px 0 14px !important;
+
+        box-sizing:border-box !important;
+
+        display:flex !important;
+
+        align-items:center !important;
+
+        justify-content:space-between !important;
+
+        transform:translateX(-50%) !important;
+
+        border-radius:22px !important;
+
+        background:
+            linear-gradient(
+                135deg,
+                rgba(20,20,20,.82),
+                rgba(8,8,8,.72)
+            ) !important;
+
+        backdrop-filter:
+            blur(25px)
+            saturate(160%) !important;
+
+        -webkit-backdrop-filter:
+            blur(25px)
+            saturate(160%) !important;
+
+        border:
+            1px solid rgba(212,175,55,.30) !important;
+
+        box-shadow:
+            0 12px 35px rgba(0,0,0,.55),
+            inset 0 1px 0 rgba(255,255,255,.12),
+            0 0 25px rgba(212,175,55,.08) !important;
+
+        overflow:visible !important;
+
+        z-index:99999 !important;
+    }
+
+
+    /* -----------------------------------------------------
+       LOGO
+    ----------------------------------------------------- */
+
+    .glass-nav .logo{
+
+        width:auto !important;
+
+        min-width:0 !important;
+
+        max-width:calc(100% - 70px) !important;
+
+        flex:1 !important;
+
+        display:flex !important;
+
+        align-items:center !important;
+
+        justify-content:flex-start !important;
+
+        overflow:hidden !important;
+    }
+
+
+    .glass-nav .logo img{
+
+        display:block !important;
+
+        width:auto !important;
+
+        height:50px !important;
+
+        max-width:165px !important;
+
+        object-fit:contain !important;
+    }
+
+
+    /* -----------------------------------------------------
+       DESKTOP BOOK BUTTON
+       HIDDEN ONLY MOBILE
+    ----------------------------------------------------- */
+
+    .glass-nav .nav-actions{
+
+        display:none !important;
+    }
+
+
+    /* =====================================================
+       HAMBURGER BUTTON
+    ===================================================== */
+
+    .glass-nav .mobileMenuBtn{
+
+        display:flex !important;
+
+        position:absolute !important;
+
+        right:9px !important;
+
+        top:9px !important;
+
+        width:52px !important;
+
+        height:52px !important;
+
+        min-width:52px !important;
+
+        min-height:52px !important;
+
+        max-width:52px !important;
+
+        max-height:52px !important;
+
+        margin:0 !important;
+
+        padding:0 !important;
+
+        box-sizing:border-box !important;
+
+        align-items:center !important;
+
+        justify-content:center !important;
+
+        flex-direction:column !important;
+
+        gap:5px !important;
+
+        border-radius:16px !important;
+
+        border:
+            1px solid rgba(212,175,55,.50) !important;
+
+        outline:none !important;
+
+        cursor:pointer !important;
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(255,255,255,.15),
+                rgba(255,255,255,.035)
+            ) !important;
+
+        backdrop-filter:
+            blur(20px)
+            saturate(160%) !important;
+
+        -webkit-backdrop-filter:
+            blur(20px)
+            saturate(160%) !important;
+
+        box-shadow:
+            0 8px 25px rgba(0,0,0,.55),
+            0 0 20px rgba(212,175,55,.12),
+            inset 0 1px 0 rgba(255,255,255,.16) !important;
+
+        z-index:100001 !important;
+    }
+
+
+    /* -----------------------------------------------------
+       HAMBURGER LINES
+    ----------------------------------------------------- */
+
+    .glass-nav .mobileMenuBtn span{
+
+        display:block !important;
+
+        width:23px !important;
+
+        height:2px !important;
+
+        min-height:2px !important;
+
+        margin:0 !important;
+
+        padding:0 !important;
+
+        opacity:1 !important;
+
+        visibility:visible !important;
+
+        background:
+            linear-gradient(
+                90deg,
+                #ffffff,
+                #f7df84,
+                #d4af37
+            ) !important;
+
+        border-radius:20px !important;
+
+        transform-origin:center !important;
+
+        transition:
+            transform .35s ease,
+            opacity .25s ease,
+            width .25s ease !important;
+    }
+
+
+    /* -----------------------------------------------------
+       HAMBURGER HOVER
+    ----------------------------------------------------- */
+
+    .glass-nav .mobileMenuBtn:hover{
+
+        border-color:#f7df84 !important;
+
+        box-shadow:
+            0 10px 30px rgba(0,0,0,.65),
+            0 0 28px rgba(212,175,55,.28),
+            inset 0 1px 0 rgba(255,255,255,.18) !important;
+
+        transform:scale(1.03) !important;
+    }
+
+
+    /* =====================================================
+       MOBILE MENU PANEL
+    ===================================================== */
+
+    .glass-nav nav{
+
+        position:fixed !important;
+
+        top:92px !important;
+
+        left:50% !important;
+
+        width:calc(100% - 20px) !important;
+
+        max-height:
+            calc(100vh - 108px) !important;
+
+        padding:12px !important;
+
+        box-sizing:border-box !important;
+
+        display:flex !important;
+
+        flex-direction:column !important;
+
+        gap:8px !important;
+
+        overflow-y:auto !important;
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(15,15,15,.94),
+                rgba(12,12,12,.90)
+            ) !important;
+
+        backdrop-filter:
+            blur(35px)
+            saturate(160%) !important;
+
+        -webkit-backdrop-filter:
+            blur(35px)
+            saturate(160%) !important;
+
+        border:
+            1px solid rgba(212,175,55,.32) !important;
+
+        border-radius:24px !important;
+
+        box-shadow:
+            0 25px 70px rgba(0,0,0,.72),
+            0 0 35px rgba(212,175,55,.12),
+            inset 0 1px 0 rgba(255,255,255,.10) !important;
+
+        transform:
+            translateX(-50%)
+            translateY(-20px)
+            scale(.96) !important;
+
+        opacity:0 !important;
+
+        visibility:hidden !important;
+
+        pointer-events:none !important;
+
+        transition:
+            opacity .30s ease,
+            transform .35s cubic-bezier(.2,.8,.2,1),
+            visibility .30s ease !important;
+
+        z-index:100000 !important;
+    }
+
+
+    /* =====================================================
+       MENU OPEN
+    ===================================================== */
+
+    .glass-nav nav.active{
+
+        opacity:1 !important;
+
+        visibility:visible !important;
+
+        pointer-events:auto !important;
+
+        transform:
+            translateX(-50%)
+            translateY(0)
+            scale(1) !important;
+    }
+
+
+    /* =====================================================
+       MENU LINKS
+    ===================================================== */
+
+    .glass-nav nav a{
+
+        width:100% !important;
+
+        min-height:48px !important;
+
+        box-sizing:border-box !important;
+
+        display:flex !important;
+
+        align-items:center !important;
+
+        justify-content:center !important;
+
+        padding:13px 15px !important;
+
+        border-radius:14px !important;
+
+        font:
+            600 16px Poppins,
+            sans-serif !important;
+
+        color:#fff !important;
+
+        text-decoration:none !important;
+
+        background:
+            rgba(255,255,255,.045) !important;
+
+        border:
+            1px solid rgba(255,255,255,.055) !important;
+
+        transition:
+            .25s ease !important;
+    }
+
+
+    /* ACTIVE / HOVER */
+
+    .glass-nav nav a:hover,
+    .glass-nav nav a.active{
+
+        color:#f7df84 !important;
+
+        background:
+            linear-gradient(
+                135deg,
+                rgba(212,175,55,.18),
+                rgba(212,175,55,.045)
+            ) !important;
+
+        border-color:
+            rgba(212,175,55,.32) !important;
+
+        box-shadow:
+            0 5px 18px rgba(212,175,55,.08) !important;
+    }
+
+
+    /* =====================================================
+       HAMBURGER → X
+    ===================================================== */
+
+    .glass-nav .mobileMenuBtn.active span:nth-child(1){
+
+        transform:
+            translateY(7px)
+            rotate(45deg) !important;
+    }
+
+
+    .glass-nav .mobileMenuBtn.active span:nth-child(2){
+
+        width:0 !important;
+
+        opacity:0 !important;
+    }
+
+
+    .glass-nav .mobileMenuBtn.active span:nth-child(3){
+
+        transform:
+            translateY(-7px)
+            rotate(-45deg) !important;
+    }
+
+
+    /* =====================================================
+       BODY LOCK
+    ===================================================== */
+
+    body.menuOpen{
+
+        overflow:hidden !important;
+    }
+
+}
+/* =========================================================
+   MOBILE BRAND NAME
+   RADHE SHYAM CATERERS
+   DESKTOP = COMPLETELY HIDDEN
+========================================================= */
+
+.mobileBrandName{
+    display:none;
+}
+
+
+/* =========================================================
+   ONLY MOBILE
+========================================================= */
+
+@media only screen and (max-width:768px){
+
+    /* -----------------------------------------------------
+       MOBILE BRAND
+    ----------------------------------------------------- */
+
+    .mobileBrandName{
+
+        display:flex !important;
+
+        flex-direction:column !important;
+
+        justify-content:center !important;
+
+        align-items:flex-start !important;
+
+        flex:1 !important;
+
+        min-width:0 !important;
+
+        margin-left:8px !important;
+
+        margin-right:58px !important;
+
+        line-height:1 !important;
+
+        position:relative !important;
+
+        z-index:5 !important;
+
+    }
+
+
+    /* =====================================================
+       RADHE SHYAM
+    ===================================================== */
+
+    .mobileBrandName span{
+
+        display:block !important;
+
+        font-family:
+            "Cinzel",
+            Georgia,
+            serif !important;
+
+        font-size:28px !important;
+
+        font-weight:700 !important;
+
+        letter-spacing:1px !important;
+
+        white-space:nowrap !important;
+
+        background:
+            linear-gradient(
+                90deg,
+                #fff4b0 0%,
+                #f7df84 20%,
+                #d4af37 45%,
+                #fff1a3 65%,
+                #b8860b 85%,
+                #f7df84 100%
+            ) !important;
+
+        background-size:250% auto !important;
+
+        -webkit-background-clip:text !important;
+
+        background-clip:text !important;
+
+        -webkit-text-fill-color:transparent !important;
+
+        color:transparent !important;
+
+        animation:
+            mobileGoldShine 4s linear infinite !important;
+
+        text-shadow:
+            0 0 12px rgba(212,175,55,.18) !important;
+
+    }
+
+
+    /* =====================================================
+       CATERERS
+    ===================================================== */
+
+    .mobileBrandName small{
+
+        display:block !important;
+
+        margin-top:4px !important;
+
+        font-family:
+            "Poppins",
+            sans-serif !important;
+
+        font-size:14px !important;
+
+        font-weight:600 !important;
+
+        letter-spacing:4px !important;
+
+        padding-left:2px !important;
+
+        white-space:nowrap !important;
+
+        background:
+            linear-gradient(
+                90deg,
+                #b8860b,
+                #f7df84,
+                #fff5b5,
+                #d4af37,
+                #b8860b
+            ) !important;
+
+        background-size:250% auto !important;
+
+        -webkit-background-clip:text !important;
+
+        background-clip:text !important;
+
+        -webkit-text-fill-color:transparent !important;
+
+        color:transparent !important;
+
+        animation:
+            mobileGoldShine 4s linear infinite !important;
+
+    }
+
+
+    /* =====================================================
+       GOLD ANIMATION
+    ===================================================== */
+
+    @keyframes mobileGoldShine{
+
+        0%{
+            background-position:0% center;
+        }
+
+        50%{
+            background-position:100% center;
+        }
+
+        100%{
+            background-position:0% center;
+        }
+
+    }
+
+
+    /* =====================================================
+       LOGO + BRAND ALIGNMENT
+    ===================================================== */
+
+    .glass-nav .logo{
+
+        flex:0 0 auto !important;
+
+        width:auto !important;
+
+        min-width:0 !important;
+
+        max-width:none !important;
+
+        margin:0 !important;
+
+    }
+
+
+    .glass-nav .logo img{
+
+        width:auto !important;
+
+        height:50px !important;
+
+        max-width:82px !important;
+
+        object-fit:contain !important;
+
+        display:block !important;
+
+    }
+
+
+    /* =====================================================
+       KEEP HAMBURGER ON RIGHT
+    ===================================================== */
+
+    .glass-nav .mobileMenuBtn{
+
+        position:absolute !important;
+
+        right:9px !important;
+
+        top:9px !important;
+
+        z-index:100001 !important;
+
+    }
+
+}

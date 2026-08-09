@@ -1,0 +1,176 @@
+
+:root{
+
+/*==========================
+  COLORS
+===========================*/
+
+--bg:#050505;
+--bg-soft:#0d0d0d;
+--surface:rgba(255,255,255,.05);
+
+--white:#ffffff;
+--ivory:#F8F6F2;
+
+--gold:#D4AF37;
+--gold-light:#F6E7A1;
+--champagne:#E8D7A5;
+
+--copper:#B87333;
+--bronze:#8C6239;
+
+--purple:#7B3FE4;
+--purple-light:#B67BFF;
+
+--steam:#F3F3F3;
+--glass:rgba(255,255,255,.08);
+
+--border:rgba(255,255,255,.12);
+
+--shadow:0 20px 60px rgba(0,0,0,.55);
+
+--radius-xs:10px;
+--radius-sm:18px;
+--radius-md:28px;
+--radius-lg:40px;
+--radius-xl:60px;
+
+/*==========================
+ TYPOGRAPHY
+===========================*/
+
+--font-heading:'Cinzel',serif;
+--font-body:'Poppins',sans-serif;
+
+--fs-xs:.8rem;
+--fs-sm:.95rem;
+--fs-md:1rem;
+--fs-lg:1.3rem;
+--fs-xl:2rem;
+--fs-2xl:3rem;
+--fs-3xl:4.5rem;
+--fs-4xl:6rem;
+
+/*==========================
+ SPACING
+===========================*/
+
+--space-1:.5rem;
+--space-2:1rem;
+--space-3:1.5rem;
+--space-4:2rem;
+--space-5:3rem;
+--space-6:5rem;
+--space-7:8rem;
+
+/*==========================
+ TRANSITIONS
+===========================*/
+
+--fast:.25s;
+--normal:.45s;
+--slow:.8s;
+--ultra:1.2s;
+
+--ease:cubic-bezier(.19,1,.22,1);
+
+/*==========================
+ EFFECTS
+===========================*/
+
+--glass-blur:blur(24px);
+--gold-glow:0 0 20px rgba(212,175,55,.45),
+              0 0 50px rgba(212,175,55,.20);
+
+--purple-glow:0 0 25px rgba(123,63,228,.45);
+
+--text-gold:linear-gradient(
+90deg,
+#fef8dc,
+#f8df8d,
+#d4af37,
+#fff4bc);
+
+--hero-overlay:
+linear-gradient(
+180deg,
+rgba(0,0,0,.15),
+rgba(0,0,0,.75));
+
+/*==========================
+ Z INDEX
+===========================*/
+
+--z-loader:99999;
+--z-cursor:9999;
+--z-nav:999;
+--z-modal:1000;
+
+}
+
+/*==========================
+ LIGHT THEME
+===========================*/
+
+html[data-theme="light"]{
+
+--bg:#F8F6F1;
+--bg-soft:#ffffff;
+
+--surface:rgba(255,255,255,.75);
+
+--glass:rgba(255,255,255,.6);
+
+--border:rgba(0,0,0,.08);
+
+--white:#111;
+
+--shadow:0 20px 60px rgba(0,0,0,.15);
+
+}
+
+/*==========================
+ COMMON
+===========================*/
+
+::selection{
+background:var(--gold);
+color:#111;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:var(--bg);
+color:var(--white);
+font-family:var(--font-body);
+overflow-x:hidden;
+transition:
+background var(--normal),
+color var(--normal);
+}
+
+.gradient-gold{
+background:var(--text-gold);
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+}
+
+.glass{
+background:var(--glass);
+backdrop-filter:var(--glass-blur);
+-webkit-backdrop-filter:var(--glass-blur);
+border:1px solid var(--border);
+box-shadow:var(--shadow);
+}
+
+.gold-glow{
+box-shadow:var(--gold-glow);
+}
+
+.purple-glow{
+box-shadow:var(--purple-glow);
+}

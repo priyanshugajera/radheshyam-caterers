@@ -1,0 +1,650 @@
+/* ==========================================================
+contact.css
+Part 10.2 - Luxury Contact Section
+========================================================== */
+
+#contact{
+    position:relative;
+    padding:160px 0;
+    background:transparent;
+    overflow:hidden;
+	padding-top:5px !important;
+    margin-top:0 !important;
+}
+
+.contact-wrapper{
+    width:min(1450px,92%);
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+.contact-heading{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.contact-heading .sub-title{
+    color:#d4af37;
+    letter-spacing:8px;
+    text-transform:uppercase;
+    font:600 15px Poppins,sans-serif;
+}
+
+.contact-heading h2{
+    margin:18px 0;
+    font:700 clamp(50px,6vw,84px) Cinzel,serif;
+    color:#f7df84;
+    line-height:1.05;
+    text-shadow:0 0 30px rgba(212,175,55,.35);
+}
+
+.contact-heading p{
+    color:#d7d7d7;
+    max-width:720px;
+    margin:auto;
+    font:400 18px/1.8 Poppins,sans-serif;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1.1fr;
+    gap:45px;
+}
+
+.glass-card,
+#contactForm{
+    position:relative;
+    background:rgba(20,20,20,.68);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(212,175,55,.28);
+    border-radius:28px;
+    padding:32px;
+    box-shadow:0 25px 70px rgba(0,0,0,.45);
+    overflow:hidden;
+}
+
+.glass-card::before,
+#contactForm::before{
+    content:"";
+    position:absolute;
+    inset:-1px;
+    border-radius:28px;
+    background:linear-gradient(135deg,
+        rgba(255,255,255,.08),
+        rgba(212,175,55,.28),
+        rgba(255,255,255,.05));
+    opacity:.35;
+    pointer-events:none;
+}
+
+.glass-card h3{
+    color:#f7df84;
+    font:700 34px Cinzel,serif;
+    margin-bottom:24px;
+}
+
+.info-item{
+    display:flex;
+    align-items:flex-start;
+    gap:16px;
+    margin-bottom:24px;
+}
+.icon{
+
+width:64px;
+height:64px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+border-radius:50%;
+
+text-decoration:none;
+
+font-size:30px;
+
+transition:.35s;
+
+}
+
+/* Phone */
+
+.phone-icon{
+
+background:linear-gradient(135deg,#FFD84A,#D4AF37);
+
+color:#111;
+
+box-shadow:0 0 25px rgba(212,175,55,.45);
+
+}
+
+/* WhatsApp */
+
+.whatsapp-icon{
+
+background:#25D366;
+
+color:#fff;
+
+box-shadow:0 0 30px rgba(37,211,102,.45);
+
+}
+
+/* Location */
+
+.location-icon{
+
+background:#EA4335;
+
+color:#fff;
+
+box-shadow:0 0 30px rgba(234,67,53,.40);
+
+}
+
+.icon:hover{
+
+transform:scale(1.12) rotate(8deg);
+
+}
+.info-item:hover .icon{
+
+transform:scale(1.12) rotate(10deg);
+
+}
+
+.info-item a{
+
+color:#fff;
+
+text-decoration:none;
+
+transition:.3s;
+
+}
+
+.info-item:hover a{
+
+color:#f7df84;
+
+}
+
+.info-item h4{
+    color:#fff;
+    margin:0 0 6px;
+    font:600 20px Poppins,sans-serif;
+}
+
+.info-item a,
+.info-item p{
+    color:#d6d6d6;
+    text-decoration:none;
+    line-height:1.7;
+}
+
+.map-box{
+    margin-top:30px;
+    overflow:hidden;
+    border-radius:18px;
+    border:1px solid rgba(212,175,55,.25);
+}
+
+.map-box iframe{
+    width:100%;
+    height:300px;
+    border:0;
+}
+
+#contactForm{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+#contactForm input,
+#contactForm select,
+#contactForm textarea{
+    width:100%;
+    padding:16px 18px;
+    border-radius:14px;
+    border:1px solid rgba(212,175,55,.2);
+    background:rgba(255,255,255,.05);
+    color:#fff;
+    outline:none;
+    font:500 15px Poppins,sans-serif;
+}
+
+#contactForm textarea{
+    resize:vertical;
+    min-height:150px;
+}
+
+#contactForm input::placeholder,
+#contactForm textarea::placeholder{
+    color:#bfbfbf;
+}
+
+.sendBtn{
+    margin-top:8px;
+    padding:18px;
+    border:none;
+    border-radius:16px;
+    cursor:pointer;
+    font:700 16px Poppins,sans-serif;
+    color:#111;
+    background:linear-gradient(135deg,#f7df84,#d4af37,#b98a22);
+    box-shadow:0 18px 40px rgba(212,175,55,.35);
+    transition:.35s;
+}
+
+.sendBtn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 25px 50px rgba(212,175,55,.45);
+}
+
+@media(max-width:991px){
+.contact-grid{
+    grid-template-columns:1fr;
+}
+}
+
+@media(max-width:640px){
+#contact{
+    padding:100px 0;
+}
+.contact-heading h2{
+    font-size:42px;
+}
+.glass-card,
+#contactForm{
+    padding:22px;
+}
+.map-box iframe{
+    height:220px;
+}
+}
+/* =========================================================
+   CONTACT PERSONS
+   4 CONTACT NUMBERS
+========================================================= */
+
+.contact-numbers{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:18px;
+
+    margin-bottom:30px;
+
+}
+
+
+/* =========================================================
+   PERSON CARD
+========================================================= */
+
+.contact-person{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:18px;
+
+    min-width:0;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(35,30,20,.82),
+            rgba(15,15,15,.72)
+        );
+
+    border:
+        1px solid rgba(212,175,55,.28);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.30),
+        inset 0 1px 0 rgba(255,255,255,.04);
+
+    backdrop-filter:blur(15px);
+
+    transition:.35s;
+
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.contact-person:hover{
+
+    transform:translateY(-5px);
+
+    border-color:
+        rgba(212,175,55,.65);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.45),
+        0 0 25px rgba(212,175,55,.12);
+
+}
+
+
+/* =========================================================
+   PHONE ICON
+========================================================= */
+
+.person-icon{
+
+    width:52px;
+
+    height:52px;
+
+    min-width:52px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:21px;
+
+}
+
+
+/* =========================================================
+   PHONE GOLD
+========================================================= */
+
+.person-icon.phone-icon{
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7df84,
+            #d4af37,
+            #b98a22
+        );
+
+    color:#111;
+
+    box-shadow:
+        0 0 22px rgba(212,175,55,.35);
+
+}
+
+
+/* =========================================================
+   PERSON INFORMATION
+========================================================= */
+
+.person-info{
+
+    flex:1;
+
+    min-width:0;
+
+}
+
+
+.person-info h4{
+
+    margin:
+        0 0 5px;
+
+    color:#fff;
+
+    font:
+        600 16px Poppins,sans-serif;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+
+.person-info a{
+
+    color:#d7d7d7;
+
+    text-decoration:none;
+
+    font:
+        400 14px Poppins,sans-serif;
+
+    transition:.3s;
+
+}
+
+
+.person-info a:hover{
+
+    color:#f7df84;
+
+}
+
+
+/* =========================================================
+   CALL BUTTON
+========================================================= */
+
+.call-person-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
+    min-width:72px;
+
+    padding:
+        10px 13px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    color:#111;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7df84,
+            #d4af37
+        );
+
+    font:
+        700 12px Poppins,sans-serif;
+
+    box-shadow:
+        0 8px 20px rgba(212,175,55,.25);
+
+    transition:.3s;
+
+}
+
+
+.call-person-btn i{
+
+    font-size:12px;
+
+}
+
+
+.call-person-btn:hover{
+
+    transform:
+        translateY(-3px)
+        scale(1.04);
+
+    box-shadow:
+        0 12px 28px rgba(212,175,55,.45);
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:640px){
+
+    .contact-numbers{
+
+        grid-template-columns:
+            1fr;
+
+        gap:12px;
+
+        margin-bottom:24px;
+
+    }
+
+
+    .contact-person{
+
+        padding:13px;
+
+        border-radius:16px;
+
+        gap:11px;
+
+    }
+
+
+    .person-icon{
+
+        width:44px;
+
+        height:44px;
+
+        min-width:44px;
+
+        font-size:17px;
+
+    }
+
+
+    .person-info h4{
+
+        font-size:13px;
+
+        margin-bottom:3px;
+
+    }
+
+
+    .person-info a{
+
+        font-size:11px;
+
+    }
+
+
+    .call-person-btn{
+
+        min-width:62px;
+
+        padding:9px 10px;
+
+        border-radius:10px;
+
+        font-size:10px;
+
+        gap:5px;
+
+    }
+
+
+    .call-person-btn i{
+
+        font-size:10px;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media(max-width:390px){
+
+    .contact-numbers{
+
+        gap:10px;
+
+    }
+
+
+    .contact-person{
+
+        padding:11px;
+
+        gap:9px;
+
+    }
+
+
+    .person-icon{
+
+        width:40px;
+
+        height:40px;
+
+        min-width:40px;
+
+        font-size:15px;
+
+    }
+
+
+    .person-info h4{
+
+        font-size:12px;
+
+    }
+
+
+    .person-info a{
+
+        font-size:10px;
+
+    }
+
+
+    .call-person-btn{
+
+        min-width:57px;
+
+        padding:8px 8px;
+
+        font-size:9px;
+
+    }
+
+}

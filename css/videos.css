@@ -1,0 +1,89 @@
+/* ==========================================================
+   videos.css
+   Part 6.1 - Luxury Videos Section (Starter Structure)
+   ========================================================== */
+
+#videos{
+    position:relative;
+    padding:140px 0;
+    background:transparent;
+    overflow:hidden;
+}
+
+.videos-wrapper{
+    width:min(1400px,92%);
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+.videos-heading{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.videos-heading .sub-title{
+    color:#d4af37;
+    letter-spacing:6px;
+    text-transform:uppercase;
+    font:600 15px Poppins,sans-serif;
+}
+
+.videos-heading h2{
+    margin-top:18px;
+    color:#f7df84;
+    font:700 clamp(48px,6vw,82px) Cinzel,serif;
+}
+
+.videos-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+}
+
+.video-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:24px;
+    background:rgba(18,18,18,.75);
+    border:1px solid rgba(212,175,55,.25);
+    backdrop-filter:blur(18px);
+    transition:.4s;
+}
+
+.video-card:hover{
+    transform:translateY(-8px);
+    border-color:#d4af37;
+    box-shadow:0 20px 60px rgba(212,175,55,.25);
+}
+
+.video-card video{
+    width:100%;
+    display:block;
+    aspect-ratio:16/9;
+    object-fit:cover;
+}
+
+.video-info{
+    padding:18px;
+}
+
+.video-info h3{
+    color:#f7df84;
+    font:700 24px Cinzel,serif;
+    margin:0 0 10px;
+}
+
+.video-info p{
+    color:#ddd;
+    line-height:1.7;
+}
+
+@media(max-width:992px){
+.videos-grid{grid-template-columns:1fr 1fr;}
+}
+
+@media(max-width:640px){
+.videos-grid{grid-template-columns:1fr;}
+#videos{padding:90px 0;}
+}

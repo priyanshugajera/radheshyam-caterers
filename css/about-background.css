@@ -1,0 +1,96 @@
+/* =====================================================
+ Part 4.9 - Royal Palace Background + HDR Lighting
+===================================================== */
+
+#about{
+    position:relative;
+    overflow:hidden;
+    isolation:isolate;
+    background:
+    linear-gradient(rgba(8,8,8,.72),rgba(8,8,8,.88)),
+    url("../assets/images/about-palace-bg.jpg") center center/cover no-repeat;
+}
+
+/* Side palace overlays */
+#about::before,
+#about::after{
+    content:"";
+    position:absolute;
+    top:0;
+    bottom:0;
+    width:24%;
+    opacity:.22;
+    pointer-events:none;
+    background-size:cover;
+    background-repeat:no-repeat;
+    filter:brightness(.9) contrast(1.1);
+}
+
+#about::before{
+    left:0;
+    background-image:url("../assets/images/palace-left.png");
+    background-position:left center;
+}
+
+#about::after{
+    right:0;
+    background-image:url("../assets/images/palace-right.png");
+    background-position:right center;
+}
+
+/* HDR center glow */
+.about-hdr{
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle at 50% 20%,rgba(255,220,120,.18),transparent 35%),
+    radial-gradient(circle at 50% 55%,rgba(212,175,55,.10),transparent 60%);
+    mix-blend-mode:screen;
+    pointer-events:none;
+}
+
+/* Vignette */
+.about-vignette{
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle,transparent 45%,rgba(0,0,0,.55) 100%);
+    pointer-events:none;
+}
+
+/* Gold dust */
+.gold-dust{
+    position:absolute;
+    width:2px;
+    height:2px;
+    border-radius:50%;
+    background:#f7d66e;
+    box-shadow:0 0 12px rgba(212,175,55,.95);
+    animation:goldFloat linear infinite;
+    opacity:.9;
+}
+
+@keyframes goldFloat{
+    from{
+        transform:translateY(80px) scale(.5);
+        opacity:0;
+    }
+    15%{opacity:1;}
+    to{
+        transform:translateY(-120vh) translateX(80px) scale(1.2);
+        opacity:0;
+    }
+}
+
+/* Corner ornaments */
+.corner-ornament{
+    position:absolute;
+    width:180px;
+    height:180px;
+    opacity:.25;
+    background-size:contain;
+    background-repeat:no-repeat;
+}
+.corner-ornament.tl{left:10px;top:10px;background-image:url("../assets/images/ornament-left.png");}
+.corner-ornament.tr{right:10px;top:10px;background-image:url("../assets/images/ornament-right.png");}
+.corner-ornament.bl{left:10px;bottom:10px;background-image:url("../assets/images/ornament-left.png");transform:rotate(180deg);}
+.corner-ornament.br{right:10px;bottom:10px;background-image:url("../assets/images/ornament-right.png");transform:rotate(180deg);}

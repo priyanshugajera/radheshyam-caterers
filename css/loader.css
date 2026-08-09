@@ -1,0 +1,206 @@
+
+/* ==========================================
+   LOADER.CSS
+   Cinematic Intro Foundation
+========================================== */
+
+#loader{
+position:fixed;
+inset:0;
+background:#000;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+z-index:99999;
+transition:opacity .9s ease,visibility .9s ease;
+}
+
+#loader.hide{
+
+opacity:0;
+
+visibility:hidden;
+
+pointer-events:none;
+
+display:none;
+
+}
+
+#loader::before{
+content:"";
+position:absolute;
+inset:-20%;
+background:
+radial-gradient(circle at center,
+rgba(212,175,55,.22),
+transparent 55%);
+animation:pulseGlow 3s ease-in-out infinite;
+}
+
+#loader::after{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(180deg,
+rgba(255,255,255,.02),
+rgba(0,0,0,.35));
+pointer-events:none;
+}
+
+#goldDust{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+opacity:.95;
+mix-blend-mode:screen;
+filter:blur(.2px);
+}
+
+#introLogo{
+width:200px;
+max-width:42vw;
+opacity:0;
+transform:translateY(40px) scale(.75) rotateX(35deg);
+filter:drop-shadow(0 0 0 rgba(212,175,55,0));
+animation:
+logoReveal 1.1s cubic-bezier(.19,1,.22,1) .15s forwards,
+logoFloat 5s ease-in-out 1.4s infinite;
+z-index:3;
+}
+
+#loader h1{
+margin-top:24px;
+font-family:var(--font-heading);
+font-size:clamp(2rem,4vw,4rem);
+letter-spacing:.08em;
+text-transform:uppercase;
+background:linear-gradient(90deg,#fff,#f6e7a1,#d4af37,#fff);
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+opacity:0;
+transform:translateY(25px);
+animation:titleReveal .9s ease .65s forwards;
+z-index:3;
+text-align:center;
+}
+
+#loader h2{
+margin-top:18px;
+max-width:900px;
+padding:0 20px;
+font-size:clamp(1rem,2vw,1.45rem);
+font-weight:500;
+color:#efe5bf;
+text-align:center;
+opacity:0;
+letter-spacing:.03em;
+text-shadow:0 0 22px rgba(212,175,55,.35);
+animation:tagReveal .9s ease .95s forwards;
+z-index:3;
+}
+
+.loaderFlash{
+position:absolute;
+width:260px;
+height:260px;
+border-radius:50%;
+background:radial-gradient(circle,
+rgba(255,255,255,.85),
+rgba(212,175,55,.15),
+transparent 70%);
+filter:blur(20px);
+opacity:.35;
+animation:flashOrbit 7s linear infinite;
+}
+
+.loaderRing{
+position:absolute;
+width:420px;
+height:420px;
+border-radius:50%;
+border:1px solid rgba(212,175,55,.12);
+box-shadow:
+0 0 30px rgba(212,175,55,.12),
+inset 0 0 20px rgba(212,175,55,.08);
+animation:ringRotate 14s linear infinite;
+}
+
+.loaderRing::before,
+.loaderRing::after{
+content:"";
+position:absolute;
+inset:24px;
+border-radius:50%;
+border:1px dashed rgba(255,255,255,.08);
+}
+
+.loaderRing::after{
+inset:58px;
+border-style:solid;
+border-color:rgba(212,175,55,.08);
+}
+
+.loaderVignette{
+position:absolute;
+inset:0;
+background:
+radial-gradient(circle,
+transparent 45%,
+rgba(0,0,0,.55) 100%);
+pointer-events:none;
+}
+
+@keyframes logoReveal{
+to{
+opacity:1;
+transform:translateY(0) scale(1) rotateX(0);
+filter:drop-shadow(0 0 28px rgba(212,175,55,.45));
+}
+}
+
+@keyframes titleReveal{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes tagReveal{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes logoFloat{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-8px);}
+}
+
+@keyframes pulseGlow{
+0%,100%{transform:scale(1);opacity:.4;}
+50%{transform:scale(1.08);opacity:.85;}
+}
+
+@keyframes ringRotate{
+from{transform:rotate(0deg);}
+to{transform:rotate(360deg);}
+}
+
+@keyframes flashOrbit{
+from{transform:rotate(0deg) translateX(180px) rotate(0deg);}
+to{transform:rotate(360deg) translateX(180px) rotate(-360deg);}
+}
+
+@media(max-width:768px){
+#introLogo{width:120px;}
+.loaderRing{width:280px;height:280px;}
+#loader h1{padding:0 16px;}
+#loader h2{font-size:1rem;}
+}

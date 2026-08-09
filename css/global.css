@@ -1,0 +1,352 @@
+
+/* =====================================================
+   GLOBAL.CSS
+   Radhe Shyam Caterers
+   Premium Global Foundation
+===================================================== */
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    width:100%;
+    min-height:100%;
+    scroll-behavior:smooth;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    text-rendering:optimizeLegibility;
+}
+
+body{
+    width:100%;
+    min-height:100vh;
+    background:var(--bg);
+    color:var(--white);
+    font-family:var(--font-body);
+    overflow-x:hidden;
+    position:relative;
+    transition:background .5s,color .5s;
+}
+
+/* Background */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+      radial-gradient(circle at top,#2a1d00 0%,transparent 45%),
+      radial-gradient(circle at bottom,#2b1654 0%,transparent 45%);
+    opacity:.22;
+    pointer-events:none;
+    z-index:-3;
+}
+
+/* Animated noise */
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    opacity:.035;
+    background-image:
+    radial-gradient(circle,#fff 1px,transparent 1px);
+    background-size:6px 6px;
+    animation:noiseMove 14s linear infinite;
+    pointer-events:none;
+    z-index:-2;
+}
+
+@keyframes noiseMove{
+    from{transform:translate(0,0);}
+    to{transform:translate(-120px,-90px);}
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#090909;
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(var(--gold),var(--copper));
+    border-radius:30px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:var(--gold-light);
+}
+
+/* Selection */
+
+::selection{
+    background:var(--gold);
+    color:#111;
+}
+
+/* Typography */
+
+h1,h2,h3,h4,h5,h6{
+    font-family:var(--font-heading);
+    font-weight:700;
+    line-height:1.15;
+    letter-spacing:.02em;
+}
+
+p{
+    line-height:1.9;
+    color:#d7d7d7;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+    transition:.35s;
+}
+
+img{
+    display:block;
+    width:100%;
+    user-select:none;
+}
+
+video{
+    display:block;
+    width:100%;
+    object-fit:cover;
+}
+
+button{
+    cursor:pointer;
+    font-family:inherit;
+    border:none;
+    outline:none;
+}
+
+/* Layout */
+
+section{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    padding:120px 8vw;
+    overflow:hidden;
+}
+
+.container{
+    width:min(1500px,100%);
+    margin:auto;
+}
+
+/* Utilities */
+
+.flex{
+    display:flex;
+}
+
+.center{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.grid{
+    display:grid;
+}
+
+.hidden{
+    opacity:0;
+    visibility:hidden;
+}
+
+.reveal{
+    opacity:1;
+    visibility:visible;
+}
+
+.blur-bg{
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+}
+
+.glass-card{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(24px);
+    -webkit-backdrop-filter:blur(24px);
+    border-radius:28px;
+    transition:.45s;
+    overflow:hidden;
+}
+
+.glass-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 60px rgba(212,175,55,.18);
+}
+
+.gold-line{
+    position:absolute;
+    inset:auto 0 0;
+    height:1px;
+    background:linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent);
+}
+
+/* Cursor Placeholder */
+
+#cursor{
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    border:2px solid var(--gold);
+    position:fixed;
+    left:0;
+    top:0;
+    pointer-events:none;
+    transform:translate(-50%,-50%);
+    z-index:99999;
+    mix-blend-mode:screen;
+}
+
+/* Gold Dust Layer */
+
+#goldDust{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:1;
+}
+
+/* Floating Smoke Layer */
+
+.smoke-layer{
+    position:absolute;
+    inset:0;
+    opacity:.25;
+    pointer-events:none;
+    filter:blur(35px);
+}
+
+/* Buttons */
+
+.primaryBtn,
+.secondaryBtn{
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    padding:16px 34px;
+
+    border-radius:100px;
+
+    font-weight:600;
+
+    transition:.45s;
+
+}
+
+.primaryBtn{
+
+    color:#111;
+
+    background:linear-gradient(
+    135deg,
+    var(--gold-light),
+    var(--gold),
+    var(--copper));
+
+}
+
+.primaryBtn:hover{
+
+    transform:translateY(-6px) scale(1.03);
+
+    box-shadow:0 15px 45px rgba(212,175,55,.45);
+
+}
+
+.secondaryBtn{
+
+    border:1px solid rgba(255,255,255,.18);
+
+    color:#fff;
+
+    backdrop-filter:blur(16px);
+
+}
+
+.secondaryBtn:hover{
+
+    background:rgba(255,255,255,.08);
+
+}
+
+/* Responsive */
+
+@media(max-width:1200px){
+
+section{
+
+padding:90px 6vw;
+
+}
+
+}
+
+@media(max-width:768px){
+
+section{
+
+padding:80px 24px;
+
+}
+
+h1{
+
+font-size:2.4rem;
+
+}
+
+h2{
+
+font-size:2rem;
+
+}
+
+#cursor{
+
+display:none;
+
+}
+
+}
+
+@media(max-width:500px){
+
+section{
+
+padding:70px 20px;
+
+}
+
+body{
+
+font-size:15px;
+
+}
+
+}

@@ -1,0 +1,622 @@
+/* about.css - Part 4.1 Luxury Cinematic Timeline */
+#about{
+
+    position:relative;
+
+    padding:160px 0;
+
+    background:transparent;
+
+    overflow:hidden;
+
+}
+.about-container{width:min(1400px,92%);margin:auto;position:relative;z-index:2;}
+.about-title{text-align:center;margin-bottom:90px;}
+.about-title .sub{color:#d4af37;letter-spacing:8px;font:600 20px Cinzel,serif;text-transform:uppercase;}
+.about-title h2{margin-top:18px;color:#fff;font:700 clamp(46px,5vw,78px) Cinzel,serif;line-height:1.1;text-shadow:0 0 40px rgba(212,175,55,.18);}
+.timeline{position:relative;display:grid;grid-template-columns:1fr 120px 1fr;gap:20px;}
+.timeline-line{position:absolute;left:50%;top:0;transform:translateX(-50%);width:4px;height:100%;background:linear-gradient(#8b6b18,#f7df84,#8b6b18);box-shadow:0 0 30px rgba(212,175,55,.5);}
+.timeline-dot{width:28px;height:28px;margin:100px auto;border-radius:50%;background:#f7df84;border:5px solid #fff4bf;box-shadow:0 0 35px rgba(255,220,120,.95);animation:pulse 2.4s infinite;}
+.timeline-card{background:rgba(24,18,12,.88);border:1px solid rgba(212,175,55,.45);border-radius:30px;padding:34px;color:#fff;backdrop-filter:blur(18px);box-shadow:0 18px 60px rgba(0,0,0,.45);transition:.5s;transform-style:preserve-3d;}
+.timeline-card:hover{transform:translateY(-12px) rotateX(5deg) rotateY(-5deg);box-shadow:0 25px 80px rgba(212,175,55,.25);}
+.timeline-card .year{color:#d4af37;font:700 58px Cinzel,serif;}
+.timeline-card h3{margin:8px 0 18px;font:600 34px Cinzel,serif;}
+.timeline-card p{color:#d7d7d7;font:400 18px/1.7 Poppins,sans-serif;}
+.gold-particle{position:absolute;width:5px;height:5px;border-radius:50%;background:#f7df84;box-shadow:0 0 16px #f7df84;animation:float 10s linear infinite;}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
+@keyframes float{from{transform:translateY(120vh);opacity:0}20%{opacity:1}to{transform:translateY(-20vh);opacity:0}}
+@media(max-width:992px){.timeline{grid-template-columns:1fr}.timeline-line,.timeline-dot{display:none}.timeline-card{margin-bottom:28px}.about-title h2{font-size:42px}}
+/* =========================================================
+   ABOUT — MOBILE PREMIUM OPTIMIZATION
+   DESKTOP COMPLETELY UNCHANGED
+========================================================= */
+
+@media only screen and (max-width: 768px){
+
+    /* =====================================================
+       ABOUT SECTION
+       Reduce unnecessary space after HERO
+    ===================================================== */
+
+    #about{
+
+        
+
+        margin:0 !important;
+
+        overflow:hidden !important;
+
+    }
+
+
+    /* =====================================================
+       ABOUT CONTAINER
+    ===================================================== */
+
+    .about-container{
+
+        width:
+            calc(100% - 28px) !important;
+
+        max-width:none !important;
+
+        margin:
+            0 auto !important;
+
+    }
+
+
+    /* =====================================================
+       ABOUT TITLE
+    ===================================================== */
+
+    .about-title{
+
+        margin-bottom:
+            32px !important;
+
+        padding:0 !important;
+
+    }
+
+
+    .about-title .sub{
+
+        font-size:
+            14px !important;
+
+        letter-spacing:
+            5px !important;
+
+        line-height:
+            1.4 !important;
+
+    }
+
+
+    .about-title h2{
+
+        margin-top:
+            12px !important;
+
+        margin-bottom:
+            0 !important;
+
+        font-size:
+            30px !important;
+
+        line-height:
+            1.12 !important;
+
+        letter-spacing:
+            .5px !important;
+
+    }
+
+
+    /* =====================================================
+       TIMELINE
+       2 CARDS PER ROW
+    ===================================================== */
+
+    .timeline{
+
+        position:relative !important;
+
+        display:grid !important;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr)) !important;
+
+        gap:
+            12px !important;
+
+        width:100% !important;
+
+        margin:0 !important;
+
+        padding:0 !important;
+
+    }
+
+
+    /* =====================================================
+       REMOVE CENTER TIMELINE ON MOBILE
+    ===================================================== */
+
+    .timeline-line,
+    .timeline-dot{
+
+        display:none !important;
+
+    }
+
+
+    /* =====================================================
+       TIMELINE CARDS
+    ===================================================== */
+
+    .timeline-card{
+
+        width:100% !important;
+
+        min-width:0 !important;
+
+        box-sizing:border-box !important;
+
+        margin:0 !important;
+
+        padding:
+            18px 14px !important;
+
+        border-radius:
+            20px !important;
+
+        min-height:
+            185px !important;
+
+        display:flex !important;
+
+        flex-direction:column !important;
+
+        justify-content:flex-start !important;
+
+        overflow:hidden !important;
+
+        transform-style:
+            preserve-3d !important;
+
+    }
+
+
+    /* =====================================================
+       YEAR
+    ===================================================== */
+
+    .timeline-card .year{
+
+        font-size:
+            32px !important;
+
+        line-height:
+            1 !important;
+
+        margin-bottom:
+            10px !important;
+
+    }
+
+
+    /* =====================================================
+       CARD TITLE
+    ===================================================== */
+
+    .timeline-card h3{
+
+        font-size:
+            17px !important;
+
+        line-height:
+            1.25 !important;
+
+        margin:
+            4px 0 9px !important;
+
+    }
+
+
+    /* =====================================================
+       CARD DESCRIPTION
+    ===================================================== */
+
+    .timeline-card p{
+
+        font-size:
+            11.5px !important;
+
+        line-height:
+            1.55 !important;
+
+        margin:
+            0 !important;
+
+        color:
+            #d7d7d7 !important;
+
+    }
+
+
+    /* =====================================================
+       REMOVE DESKTOP HOVER 3D EFFECT ON TOUCH
+    ===================================================== */
+
+    .timeline-card:hover{
+
+        transform:
+            none !important;
+
+        box-shadow:
+            0 18px 45px rgba(0,0,0,.45),
+            0 0 20px rgba(212,175,55,.10) !important;
+
+    }
+
+
+    /* =====================================================
+       PREMIUM GOLD BORDER
+    ===================================================== */
+
+    .timeline-card{
+
+        border:
+            1px solid rgba(212,175,55,.40) !important;
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(27,23,19,.96),
+                rgba(12,10,9,.96)
+            ) !important;
+
+        box-shadow:
+            0 12px 35px rgba(0,0,0,.45),
+            inset 0 1px 0 rgba(255,255,255,.05) !important;
+
+        backdrop-filter:
+            blur(16px);
+
+        -webkit-backdrop-filter:
+            blur(16px);
+
+    }
+
+
+    /* =====================================================
+       GOLD CORNER GLOW
+    ===================================================== */
+
+    .timeline-card::before{
+
+        width:
+            90px !important;
+
+        height:
+            90px !important;
+
+        opacity:
+            .7 !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   360px / 375px
+========================================================= */
+
+@media only screen and (max-width:390px){
+
+    #about{
+
+        padding:
+            45px 0 50px !important;
+
+    }
+
+
+    .about-container{
+
+        width:
+            calc(100% - 22px) !important;
+
+    }
+
+
+    .about-title{
+
+        margin-bottom:
+            26px !important;
+
+    }
+
+
+    .about-title .sub{
+
+        font-size:
+            12px !important;
+
+        letter-spacing:
+            4px !important;
+
+    }
+
+
+    .about-title h2{
+
+        font-size:
+            27px !important;
+
+    }
+
+
+    .timeline{
+
+        gap:
+            9px !important;
+
+    }
+
+
+    .timeline-card{
+
+        min-height:
+            175px !important;
+
+        padding:
+            15px 11px !important;
+
+        border-radius:
+            17px !important;
+
+    }
+
+
+    .timeline-card .year{
+
+        font-size:
+            28px !important;
+
+    }
+
+
+    .timeline-card h3{
+
+        font-size:
+            15px !important;
+
+    }
+
+
+    .timeline-card p{
+
+        font-size:
+            10.5px !important;
+
+        line-height:
+            1.5 !important;
+
+    }
+
+}
+/* =========================================================
+   FINAL ABOUT MOBILE FIX
+   REMOVE EXTRA SPACE AFTER TIMELINE
+   DESKTOP COMPLETELY UNCHANGED
+========================================================= */
+
+@media only screen and (max-width:768px){
+
+    /* ==============================================
+       ABOUT SECTION — FORCE NATURAL HEIGHT
+    ============================================== */
+
+    #about{
+
+        padding-top:45px !important;
+
+        padding-bottom:20px !important;
+
+        margin-top:0 !important;
+
+        margin-bottom:0 !important;
+
+        height:auto !important;
+
+        min-height:0 !important;
+
+        max-height:none !important;
+
+        overflow:hidden !important;
+
+        box-sizing:border-box !important;
+
+    }
+
+
+    /* ==============================================
+       ABOUT CONTAINER
+    ============================================== */
+
+    #about .about-container{
+
+        width:calc(100% - 24px) !important;
+
+        margin:0 auto !important;
+
+        padding:0 !important;
+
+        height:auto !important;
+
+        min-height:0 !important;
+
+        max-height:none !important;
+
+        box-sizing:border-box !important;
+
+    }
+
+
+    /* ==============================================
+       TITLE
+    ============================================== */
+
+    #about .about-title{
+
+        margin-top:0 !important;
+
+        margin-bottom:28px !important;
+
+        padding:0 !important;
+
+    }
+
+
+    /* ==============================================
+       TIMELINE
+    ============================================== */
+
+    #about .timeline{
+
+        display:grid !important;
+
+        grid-template-columns:
+            repeat(2,minmax(0,1fr)) !important;
+
+        gap:10px !important;
+
+        margin:0 !important;
+
+        padding:0 !important;
+
+        height:auto !important;
+
+        min-height:0 !important;
+
+        max-height:none !important;
+
+        position:relative !important;
+
+        box-sizing:border-box !important;
+
+    }
+
+
+    /* ==============================================
+       REMOVE DESKTOP TIMELINE ELEMENTS
+    ============================================== */
+
+    #about .timeline-line,
+    #about .timeline-dot{
+
+        display:none !important;
+
+    }
+
+
+    /* ==============================================
+       CARDS
+    ============================================== */
+
+    #about .timeline-card{
+
+        width:100% !important;
+
+        height:auto !important;
+
+        min-height:170px !important;
+
+        max-height:none !important;
+
+        margin:0 !important;
+
+        padding:15px 11px !important;
+
+        box-sizing:border-box !important;
+
+    }
+
+
+    /* ==============================================
+       LAST CARD — NO EXTRA SPACE
+    ============================================== */
+
+    #about .timeline-card:last-child{
+
+        margin-bottom:0 !important;
+
+    }
+
+
+    /* ==============================================
+       REMOVE ANY TRANSFORM SPACE
+    ============================================== */
+
+    #about .timeline-card{
+
+        transform-origin:center !important;
+
+    }
+
+
+    /* ==============================================
+       PARTICLES DO NOT AFFECT LAYOUT
+    ============================================== */
+
+    #about .gold-particle{
+
+        position:absolute !important;
+
+        pointer-events:none !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media only screen and (max-width:390px){
+
+    #about{
+
+        padding-top:40px !important;
+
+        padding-bottom:15px !important;
+
+    }
+
+    #about .about-title{
+
+        margin-bottom:24px !important;
+
+    }
+
+    #about .timeline{
+
+        gap:8px !important;
+
+    }
+
+    #about .timeline-card{
+
+        min-height:160px !important;
+
+        padding:14px 10px !important;
+
+    }
+
+}

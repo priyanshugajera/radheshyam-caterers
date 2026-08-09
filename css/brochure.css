@@ -1,0 +1,1966 @@
+/* ==========================================================
+brochure.css
+Part 8.1 - Luxury Leather Book
+==========================================================*/
+
+#brochure{
+position:relative;
+padding:160px 0;
+background:transparent;
+overflow:hidden;
+padding-bottom:0 !important;
+margin-bottom:0 !important;
+}
+
+.brochure-wrapper{
+width:min(1500px,94%);
+margin:auto;
+text-align:center;
+position:relative;
+z-index:2;
+}
+
+.brochure-heading .sub-title{
+color:#d4af37;
+letter-spacing:8px;
+font:600 15px Poppins,sans-serif;
+text-transform:uppercase;
+}
+
+.brochure-heading h2{
+margin:18px 0 60px;
+font:700 clamp(54px,6vw,88px) Cinzel,serif;
+color:#f7df84;
+text-shadow:0 0 35px rgba(212,175,55,.35);
+}
+
+.book-stage{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:30px;
+perspective:2200px;
+}
+
+.flip-book{
+position:relative;
+width:min(1200px,88vw);
+aspect-ratio:1.414/1;
+border-radius:26px;
+overflow:hidden;
+transform-style:preserve-3d;
+background:
+linear-gradient(145deg,#2d220d,#0f0c08);
+border:2px solid rgba(212,175,55,.35);
+box-shadow:
+0 35px 90px rgba(0,0,0,.6),
+0 0 50px rgba(212,175,55,.18);
+transition:.5s;
+}
+
+.flip-book::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(120deg,
+transparent 20%,
+rgba(255,255,255,.10) 50%,
+transparent 80%);
+transform:translateX(-140%);
+animation:shine 8s linear infinite;
+pointer-events:none;
+}
+
+.flip-book::after{
+content:"";
+position:absolute;
+left:-24px;
+top:0;
+bottom:0;
+width:24px;
+background:linear-gradient(to right,#4b3410,#9a7225,#4b3410);
+box-shadow:8px 0 20px rgba(0,0,0,.5);
+}
+
+.flip-book:hover{
+transform:rotateY(-5deg) rotateX(2deg) translateY(-8px);
+box-shadow:
+0 45px 110px rgba(0,0,0,.7),
+0 0 70px rgba(212,175,55,.28);
+}
+
+.flip-book img{
+width:100%;
+height:100%;
+object-fit:contain;
+display:block;
+background:#111;
+}
+
+.book-stage::before{
+content:"";
+position:absolute;
+width:min(1300px,90vw);
+height:80px;
+bottom:-35px;
+background:radial-gradient(circle,
+rgba(212,175,55,.22),
+transparent 70%);
+filter:blur(30px);
+z-index:-1;
+}
+
+.book-nav,
+.download-btn,
+.fullscreen-btn,
+.prev,.next{
+padding:15px 24px;
+border:none;
+border-radius:16px;
+cursor:pointer;
+font:700 15px Poppins,sans-serif;
+background:linear-gradient(135deg,#f7df84,#d4af37,#b98a22);
+color:#111;
+box-shadow:0 15px 35px rgba(212,175,55,.3);
+transition:.3s;
+}
+
+.book-nav:hover,
+.download-btn:hover,
+.fullscreen-btn:hover{
+transform:translateY(-3px);
+box-shadow:0 20px 45px rgba(212,175,55,.45);
+}
+
+.book-actions{
+display:flex;
+justify-content:center;
+gap:20px;
+margin-top:40px;
+flex-wrap:wrap;
+}
+
+@keyframes shine{
+to{transform:translateX(140%);}
+}
+
+@media(max-width:900px){
+.book-stage{gap:12px}
+.flip-book{width:95vw}
+.book-nav{padding:12px 18px}
+}
+
+@media(max-width:600px){
+#brochure{padding:100px 0}
+.brochure-heading h2{font-size:42px}
+.book-actions{flex-direction:column;align-items:center}
+}
+
+/* =========================================================
+   BROCHURE — MOBILE PREMIUM FIX
+   DESKTOP COMPLETELY UNCHANGED
+========================================================= */
+
+@media only screen and (max-width: 600px){
+
+    /* =====================================================
+       SECTION
+    ===================================================== */
+
+    #brochure{
+
+        padding:
+            55px 0 60px !important;
+
+        margin:
+            0 !important;
+
+        overflow:
+            hidden !important;
+
+    }
+
+
+    /* =====================================================
+       MAIN BOOK STAGE
+       MOBILE = VERTICAL PREMIUM LAYOUT
+    ===================================================== */
+
+    #brochure .book-stage{
+
+        width:
+            100% !important;
+
+        max-width:
+            430px !important;
+
+        margin:
+            0 auto !important;
+
+        padding:
+            0 12px !important;
+
+        box-sizing:
+            border-box !important;
+
+        display:
+            flex !important;
+
+        flex-direction:
+            column !important;
+
+        align-items:
+            center !important;
+
+        justify-content:
+            flex-start !important;
+
+        gap:
+            0 !important;
+
+        perspective:
+            none !important;
+
+    }
+
+
+    /* =====================================================
+       BROCHURE HEADING
+    ===================================================== */
+
+    #brochure .brochure-heading{
+
+        width:
+            100% !important;
+
+        margin:
+            0 0 22px !important;
+
+        text-align:
+            center !important;
+
+        position:
+            relative !important;
+
+        z-index:
+            5 !important;
+
+    }
+
+
+    #brochure .brochure-heading .sub-title{
+
+        font-size:
+            11px !important;
+
+        letter-spacing:
+            5px !important;
+
+        line-height:
+            1.4 !important;
+
+        margin:
+            0 0 8px !important;
+
+    }
+
+
+    #brochure .brochure-heading h2{
+
+        margin:
+            0 !important;
+
+        font-size:
+            39px !important;
+
+        line-height:
+            1.05 !important;
+
+        letter-spacing:
+            1px !important;
+
+        text-align:
+            center !important;
+
+    }
+
+
+    /* =====================================================
+       BOOK / BROCHURE IMAGE
+       KEEP ORIGINAL RATIO
+    ===================================================== */
+
+    #brochure .flip-book{
+
+        position:
+            relative !important;
+
+        width:
+            100% !important;
+
+        max-width:
+            395px !important;
+
+        height:
+            auto !important;
+
+        aspect-ratio:
+            1.414 / 1 !important;
+
+        margin:
+            0 auto !important;
+
+        border-radius:
+            18px !important;
+
+        overflow:
+            hidden !important;
+
+        transform:
+            none !important;
+
+        box-sizing:
+            border-box !important;
+
+        background:
+            linear-gradient(
+                145deg,
+                #2d220d,
+                #0f0c08
+            ) !important;
+
+        border:
+            1.5px solid
+            rgba(212,175,55,.45) !important;
+
+        box-shadow:
+            0 22px 55px
+            rgba(0,0,0,.65),
+            0 0 35px
+            rgba(212,175,55,.14) !important;
+
+    }
+
+
+    /* =====================================================
+       BROCHURE IMAGE
+    ===================================================== */
+
+    #brochure .flip-book img{
+
+        width:
+            100% !important;
+
+        height:
+            100% !important;
+
+        display:
+            block !important;
+
+        object-fit:
+            contain !important;
+
+        object-position:
+            center !important;
+
+        background:
+            #111 !important;
+
+    }
+
+
+    /* =====================================================
+       REMOVE DESKTOP LEATHER EDGE ON MOBILE
+       prevents side overflow
+    ===================================================== */
+
+    #brochure .flip-book::after{
+
+        display:
+            none !important;
+
+    }
+
+
+    /* =====================================================
+       KEEP SHINE EFFECT
+    ===================================================== */
+
+    #brochure .flip-book::before{
+
+        display:
+            block !important;
+
+        pointer-events:
+            none !important;
+
+    }
+
+
+    /* =====================================================
+       PREVIOUS / NEXT
+       PUT BELOW BOOK — SAME ROW
+    ===================================================== */
+
+    #brochure .prev,
+    #brochure .next{
+
+        position:
+            relative !important;
+
+        top:
+            auto !important;
+
+        right:
+            auto !important;
+
+        bottom:
+            auto !important;
+
+        left:
+            auto !important;
+
+        transform:
+            none !important;
+
+        width:
+            52px !important;
+
+        height:
+            48px !important;
+
+        min-width:
+            52px !important;
+
+        padding:
+            0 !important;
+
+        margin:
+            16px 5px 0 !important;
+
+        display:
+            inline-flex !important;
+
+        align-items:
+            center !important;
+
+        justify-content:
+            center !important;
+
+        border-radius:
+            15px !important;
+
+        font-size:
+            15px !important;
+
+        flex:
+            0 0 auto !important;
+
+        z-index:
+            10 !important;
+
+    }
+
+
+    /* =====================================================
+       NAV BUTTON WRAPPER EFFECT
+       Since HTML has buttons directly after flip-book,
+       make them visually behave as one navigation row.
+    ===================================================== */
+
+    #brochure .prev{
+
+        margin-left:
+            0 !important;
+
+    }
+
+    #brochure .next{
+
+        margin-right:
+            0 !important;
+
+    }
+
+
+    /* =====================================================
+       FULLSCREEN / DOWNLOAD
+       KEEP BELOW NAVIGATION
+    ===================================================== */
+
+    #brochure .book-actions{
+
+        width:
+            100% !important;
+
+        margin:
+            20px 0 0 !important;
+
+        display:
+            flex !important;
+
+        flex-direction:
+            row !important;
+
+        align-items:
+            center !important;
+
+        justify-content:
+            center !important;
+
+        gap:
+            8px !important;
+
+        flex-wrap:
+            nowrap !important;
+
+    }
+
+
+    #brochure .fullscreen-btn,
+    #brochure .download-btn{
+
+        min-height:
+            43px !important;
+
+        padding:
+            10px 13px !important;
+
+        border-radius:
+            14px !important;
+
+        font-size:
+            11px !important;
+
+        white-space:
+            nowrap !important;
+
+        flex:
+            0 0 auto !important;
+
+    }
+
+
+    /* =====================================================
+       GOLD AMBIENT LIGHT
+    ===================================================== */
+
+    #brochure .book-stage::before{
+
+        width:
+            100% !important;
+
+        height:
+            70px !important;
+
+        bottom:
+            -30px !important;
+
+        opacity:
+            .7 !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   360 / 375 / 390
+========================================================= */
+
+@media only screen and (max-width:390px){
+
+    #brochure{
+
+        padding:
+            45px 0 50px !important;
+
+    }
+
+
+    #brochure .book-stage{
+
+        padding:
+            0 9px !important;
+
+    }
+
+
+    #brochure .brochure-heading{
+
+        margin-bottom:
+            18px !important;
+
+    }
+
+
+    #brochure .brochure-heading .sub-title{
+
+        font-size:
+            10px !important;
+
+        letter-spacing:
+            4px !important;
+
+    }
+
+
+    #brochure .brochure-heading h2{
+
+        font-size:
+            34px !important;
+
+    }
+
+
+    #brochure .flip-book{
+
+        max-width:
+            100% !important;
+
+        border-radius:
+            16px !important;
+
+    }
+
+
+    #brochure .prev,
+    #brochure .next{
+
+        width:
+            48px !important;
+
+        height:
+            44px !important;
+
+        min-width:
+            48px !important;
+
+        margin-top:
+            14px !important;
+
+        border-radius:
+            13px !important;
+
+    }
+
+
+    #brochure .fullscreen-btn,
+    #brochure .download-btn{
+
+        min-height:
+            40px !important;
+
+        padding:
+            9px 10px !important;
+
+        font-size:
+            10px !important;
+
+    }
+
+}
+/* =========================================================
+   BROCHURE — FINAL MOBILE LAYOUT
+   DESKTOP COMPLETELY UNCHANGED
+========================================================= */
+
+@media only screen and (max-width:600px){
+
+    /* =====================================================
+       BROCHURE SECTION
+       REMOVE EXTRA TOP / BOTTOM SPACE
+    ===================================================== */
+
+    #brochure{
+
+        padding:
+            28px 0 30px !important;
+
+        margin:
+            0 !important;
+
+        overflow:
+            hidden !important;
+
+    }
+
+
+    /* =====================================================
+       BOOK STAGE
+       GRID LAYOUT
+
+       TITLE
+       ←  BOOK  →
+       BUTTONS
+    ===================================================== */
+
+    #brochure .book-stage{
+
+        width:
+            100% !important;
+
+        max-width:
+            100% !important;
+
+        margin:
+            0 auto !important;
+
+        padding:
+            0 10px !important;
+
+        box-sizing:
+            border-box !important;
+
+        display:
+            grid !important;
+
+        grid-template-columns:
+            52px minmax(0,1fr) 52px !important;
+
+        grid-template-rows:
+            auto auto auto !important;
+
+        column-gap:
+            6px !important;
+
+        row-gap:
+            0 !important;
+
+        align-items:
+            center !important;
+
+        justify-items:
+            center !important;
+
+        perspective:
+            none !important;
+
+    }
+
+
+    /* =====================================================
+       HEADING CONTAINER
+       DON'T LET IT CREATE EXTRA HEIGHT
+    ===================================================== */
+
+    #brochure .brochure-heading{
+
+        display:
+            contents !important;
+
+        margin:
+            0 !important;
+
+        padding:
+            0 !important;
+
+    }
+
+
+    /*
+       HTML has <center> around heading.
+       Remove its layout box on mobile.
+    */
+
+    #brochure .brochure-heading center{
+
+        display:
+            contents !important;
+
+    }
+
+
+    /* =====================================================
+       OUR BROCHURE
+    ===================================================== */
+
+    #brochure .brochure-heading .sub-title{
+
+        grid-column:
+            1 / 4 !important;
+
+        grid-row:
+            1 !important;
+
+        margin:
+            0 0 5px !important;
+
+        padding:
+            0 !important;
+
+        text-align:
+            center !important;
+
+        font-size:
+            10px !important;
+
+        letter-spacing:
+            4px !important;
+
+        line-height:
+            1.3 !important;
+
+    }
+
+
+    /* =====================================================
+       LUXURY BROCHURE TITLE
+    ===================================================== */
+
+    #brochure .brochure-heading h2{
+
+        grid-column:
+            1 / 4 !important;
+
+        grid-row:
+            1 !important;
+
+        margin:
+            22px 0 18px !important;
+
+        padding:
+            0 !important;
+
+        text-align:
+            center !important;
+
+        font-size:
+            34px !important;
+
+        line-height:
+            .98 !important;
+
+        letter-spacing:
+            .5px !important;
+
+        z-index:
+            2 !important;
+
+    }
+
+
+    /* =====================================================
+       BROCHURE IMAGE
+    ===================================================== */
+
+    #brochure .flip-book{
+
+        grid-column:
+            2 !important;
+
+        grid-row:
+            2 !important;
+
+        width:
+            100% !important;
+
+        max-width:
+            100% !important;
+
+        aspect-ratio:
+            1.414 / 1 !important;
+
+        height:
+            auto !important;
+
+        margin:
+            0 !important;
+
+        border-radius:
+            17px !important;
+
+        overflow:
+            hidden !important;
+
+        transform:
+            none !important;
+
+        border:
+            1.5px solid
+            rgba(212,175,55,.48) !important;
+
+        box-shadow:
+            0 18px 45px
+            rgba(0,0,0,.65),
+            0 0 30px
+            rgba(212,175,55,.16) !important;
+
+        z-index:
+            2 !important;
+
+    }
+
+
+    /* =====================================================
+       BROCHURE IMAGE
+    ===================================================== */
+
+    #brochure .flip-book img{
+
+        width:
+            100% !important;
+
+        height:
+            100% !important;
+
+        object-fit:
+            contain !important;
+
+        object-position:
+            center !important;
+
+        display:
+            block !important;
+
+        background:
+            #111 !important;
+
+    }
+
+
+    /* =====================================================
+       REMOVE BOOK LEATHER EDGE ON MOBILE
+    ===================================================== */
+
+    #brochure .flip-book::after{
+
+        display:
+            none !important;
+
+    }
+
+
+    /* =====================================================
+       PREVIOUS BUTTON
+       LEFT SIDE OF BROCHURE
+    ===================================================== */
+
+    #brochure .prev{
+
+        grid-column:
+            1 !important;
+
+        grid-row:
+            2 !important;
+
+        width:
+            46px !important;
+
+        height:
+            46px !important;
+
+        min-width:
+            46px !important;
+
+        min-height:
+            46px !important;
+
+        padding:
+            0 !important;
+
+        margin:
+            0 !important;
+
+        display:
+            flex !important;
+
+        align-items:
+            center !important;
+
+        justify-content:
+            center !important;
+
+        border-radius:
+            14px !important;
+
+        font-size:
+            14px !important;
+
+        align-self:
+            center !important;
+
+        justify-self:
+            center !important;
+
+        position:
+            relative !important;
+
+        top:
+            auto !important;
+
+        left:
+            auto !important;
+
+        right:
+            auto !important;
+
+        bottom:
+            auto !important;
+
+        transform:
+            none !important;
+
+        z-index:
+            20 !important;
+
+    }
+
+
+    /* =====================================================
+       NEXT BUTTON
+       RIGHT SIDE OF BROCHURE
+    ===================================================== */
+
+    #brochure .next{
+
+        grid-column:
+            3 !important;
+
+        grid-row:
+            2 !important;
+
+        width:
+            46px !important;
+
+        height:
+            46px !important;
+
+        min-width:
+            46px !important;
+
+        min-height:
+            46px !important;
+
+        padding:
+            0 !important;
+
+        margin:
+            0 !important;
+
+        display:
+            flex !important;
+
+        align-items:
+            center !important;
+
+        justify-content:
+            center !important;
+
+        border-radius:
+            14px !important;
+
+        font-size:
+            14px !important;
+
+        align-self:
+            center !important;
+
+        justify-self:
+            center !important;
+
+        position:
+            relative !important;
+
+        top:
+            auto !important;
+
+        left:
+            auto !important;
+
+        right:
+            auto !important;
+
+        bottom:
+            auto !important;
+
+        transform:
+            none !important;
+
+        z-index:
+            20 !important;
+
+    }
+
+
+    /* =====================================================
+       FULLSCREEN + DOWNLOAD
+       MOVE BELOW BROCHURE
+    ===================================================== */
+
+    #brochure .book-controls{
+
+        grid-column:
+            1 / 4 !important;
+
+        grid-row:
+            3 !important;
+
+        width:
+            100% !important;
+
+        margin:
+            14px 0 0 !important;
+
+        padding:
+            0 !important;
+
+        display:
+            flex !important;
+
+        flex-direction:
+            row !important;
+
+        align-items:
+            center !important;
+
+        justify-content:
+            center !important;
+
+        gap:
+            8px !important;
+
+        flex-wrap:
+            nowrap !important;
+
+    }
+
+
+    /* =====================================================
+       CONTROL BUTTONS
+    ===================================================== */
+
+    #brochure .fullscreen-btn,
+    #brochure .download-btn{
+
+        height:
+            42px !important;
+
+        min-height:
+            42px !important;
+
+        padding:
+            0 14px !important;
+
+        margin:
+            0 !important;
+
+        border-radius:
+            13px !important;
+
+        font:
+            700 10.5px Poppins,sans-serif !important;
+
+        white-space:
+            nowrap !important;
+
+        flex:
+            0 0 auto !important;
+
+    }
+
+
+    /* =====================================================
+       REMOVE EXTRA BOOK STAGE GLOW SPACE
+    ===================================================== */
+
+    #brochure .book-stage::before{
+
+        width:
+            90% !important;
+
+        height:
+            40px !important;
+
+        bottom:
+            -10px !important;
+
+        opacity:
+            .45 !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   360 / 375 / 390
+========================================================= */
+
+@media only screen and (max-width:390px){
+
+    #brochure{
+
+        padding:
+            22px 0 25px !important;
+
+    }
+
+
+    #brochure .book-stage{
+
+        padding:
+            0 7px !important;
+
+        grid-template-columns:
+            44px minmax(0,1fr) 44px !important;
+
+        column-gap:
+            4px !important;
+
+    }
+
+
+    #brochure .brochure-heading .sub-title{
+
+        font-size:
+            9px !important;
+
+        letter-spacing:
+            3.5px !important;
+
+    }
+
+
+    #brochure .brochure-heading h2{
+
+        font-size:
+            31px !important;
+
+        margin:
+            20px 0 16px !important;
+
+    }
+
+
+    #brochure .prev,
+    #brochure .next{
+
+        width:
+            40px !important;
+
+        height:
+            40px !important;
+
+        min-width:
+            40px !important;
+
+        min-height:
+            40px !important;
+
+        border-radius:
+            12px !important;
+
+        font-size:
+            12px !important;
+
+    }
+
+
+    #brochure .book-controls{
+
+        margin-top:
+            11px !important;
+
+        gap:
+            6px !important;
+
+    }
+
+
+    #brochure .fullscreen-btn,
+    #brochure .download-btn{
+
+        height:
+            39px !important;
+
+        min-height:
+            39px !important;
+
+        padding:
+            0 10px !important;
+
+        font-size:
+            9.5px !important;
+
+        border-radius:
+            11px !important;
+
+    }
+
+}
+/* =========================================================
+   BROCHURE — FINAL MOBILE FIX V2
+   ONLY MOBILE
+   DESKTOP COMPLETELY UNCHANGED
+========================================================= */
+
+@media only screen and (max-width:600px){
+
+    /* =====================================================
+       SECTION
+       REMOVE LARGE TOP / BOTTOM SPACE
+    ===================================================== */
+
+    #brochure{
+
+        padding:
+            18px 0 22px !important;
+
+        margin:
+            0 !important;
+
+        overflow:
+            hidden !important;
+
+        min-height:
+            0 !important;
+
+    }
+
+
+    /* =====================================================
+       BOOK STAGE
+    ===================================================== */
+
+    #brochure .book-stage{
+
+        width:
+            100% !important;
+
+        max-width:
+            100% !important;
+
+        margin:
+            0 auto !important;
+
+        padding:
+            0 8px !important;
+
+        box-sizing:
+            border-box !important;
+
+        display:
+            grid !important;
+
+        /*
+            ROW 1 = OUR BROCHURE
+            ROW 2 = LUXURY BROCHURE
+            ROW 3 = BOOK + ARROWS
+            ROW 4 = BUTTONS
+        */
+
+        grid-template-columns:
+            46px minmax(0,1fr) 46px !important;
+
+        grid-template-rows:
+            auto auto auto auto !important;
+
+        column-gap:
+            5px !important;
+
+        row-gap:
+            0 !important;
+
+        align-items:
+            center !important;
+
+        justify-items:
+            center !important;
+
+        perspective:
+            none !important;
+
+        height:
+            auto !important;
+
+        min-height:
+            0 !important;
+
+    }
+
+
+    /* =====================================================
+       HEADING CONTAINER
+       IMPORTANT:
+       DO NOT USE display:contents HERE
+    ===================================================== */
+
+    #brochure .brochure-heading{
+
+        display:
+            contents !important;
+
+        margin:
+            0 !important;
+
+        padding:
+            0 !important;
+
+    }
+
+
+    #brochure .brochure-heading center{
+
+        display:
+            contents !important;
+
+    }
+
+
+    /* =====================================================
+       OUR BROCHURE
+       ROW 1
+    ===================================================== */
+
+    #brochure .brochure-heading .sub-title{
+
+        grid-column:
+            1 / 4 !important;
+
+        grid-row:
+            1 !important;
+
+        width:
+            100% !important;
+
+        margin:
+            0 !important;
+
+        padding:
+            0 !important;
+
+        text-align:
+            center !important;
+
+        font:
+            600 10px Poppins,sans-serif !important;
+
+        letter-spacing:
+            4px !important;
+
+        line-height:
+            1.2 !important;
+
+        color:
+            #d4af37 !important;
+
+        z-index:
+            5 !important;
+
+    }
+
+
+    /* =====================================================
+       LUXURY BROCHURE
+       ROW 2
+       NO OVERLAP
+    ===================================================== */
+
+    #brochure .brochure-heading h2{
+
+        grid-column:
+            1 / 4 !important;
+
+        grid-row:
+            2 !important;
+
+        width:
+            100% !important;
+
+        margin:
+            7px 0 14px !important;
+
+        padding:
+            0 !important;
+
+        text-align:
+            center !important;
+
+        font:
+            700 32px/1.0 Cinzel,serif !important;
+
+        letter-spacing:
+            .5px !important;
+
+        color:
+            #f7df84 !important;
+
+        text-shadow:
+            0 0 20px
+            rgba(212,175,55,.35) !important;
+
+        z-index:
+            5 !important;
+
+    }
+
+
+    /* =====================================================
+       BROCHURE IMAGE
+       ROW 3
+    ===================================================== */
+
+    #brochure .flip-book{
+
+        grid-column:
+            2 !important;
+
+        grid-row:
+            3 !important;
+
+        width:
+            100% !important;
+
+        max-width:
+            100% !important;
+
+        height:
+            auto !important;
+
+        aspect-ratio:
+            1.414 / 1 !important;
+
+        margin:
+            0 !important;
+
+        padding:
+            0 !important;
+
+        box-sizing:
+            border-box !important;
+
+        border-radius:
+            16px !important;
+
+        overflow:
+            hidden !important;
+
+        transform:
+            none !important;
+
+        border:
+            1.5px solid
+            rgba(212,175,55,.45) !important;
+
+        background:
+            #111 !important;
+
+        box-shadow:
+            0 15px 40px
+            rgba(0,0,0,.60),
+            0 0 25px
+            rgba(212,175,55,.14) !important;
+
+        z-index:
+            3 !important;
+
+    }
+
+
+    /* =====================================================
+       IMAGE
+    ===================================================== */
+
+    #brochure .flip-book img{
+
+        width:
+            100% !important;
+
+        height:
+            100% !important;
+
+        display:
+            block !important;
+
+        object-fit:
+            contain !important;
+
+        object-position:
+            center !important;
+
+        margin:
+            0 !important;
+
+        padding:
+            0 !important;
+
+        background:
+            #111 !important;
+
+    }
+
+
+    /* =====================================================
+       REMOVE LEATHER EDGE
+    ===================================================== */
+
+    #brochure .flip-book::after{
+
+        display:
+            none !important;
+
+    }
+
+
+    /* =====================================================
+       PREVIOUS
+       ROW 3 — LEFT
+    ===================================================== */
+
+    #brochure .prev{
+
+        grid-column:
+            1 !important;
+
+        grid-row:
+            3 !important;
+
+        position:
+            relative !important;
+
+        top:
+            auto !important;
+
+        right:
+            auto !important;
+
+        bottom:
+            auto !important;
+
+        left:
+            auto !important;
+
+        transform:
+            none !important;
+
+        width:
+            42px !important;
+
+        height:
+            42px !important;
+
+        min-width:
+            42px !important;
+
+        min-height:
+            42px !important;
+
+        padding:
+            0 !important;
+
+        margin:
+            0 !important;
+
+        display:
+            flex !important;
+
+        align-items:
+            center !important;
+
+        justify-content:
+            center !important;
+
+        justify-self:
+            center !important;
+
+        align-self:
+            center !important;
+
+        border-radius:
+            13px !important;
+
+        font-size:
+            12px !important;
+
+        z-index:
+            10 !important;
+
+    }
+
+
+    /* =====================================================
+       NEXT
+       ROW 3 — RIGHT
+    ===================================================== */
+
+    #brochure .next{
+
+        grid-column:
+            3 !important;
+
+        grid-row:
+            3 !important;
+
+        position:
+            relative !important;
+
+        top:
+            auto !important;
+
+        right:
+            auto !important;
+
+        bottom:
+            auto !important;
+
+        left:
+            auto !important;
+
+        transform:
+            none !important;
+
+        width:
+            42px !important;
+
+        height:
+            42px !important;
+
+        min-width:
+            42px !important;
+
+        min-height:
+            42px !important;
+
+        padding:
+            0 !important;
+
+        margin:
+            0 !important;
+
+        display:
+            flex !important;
+
+        align-items:
+            center !important;
+
+        justify-content:
+            center !important;
+
+        justify-self:
+            center !important;
+
+        align-self:
+            center !important;
+
+        border-radius:
+            13px !important;
+
+        font-size:
+            12px !important;
+
+        z-index:
+            10 !important;
+
+    }
+
+
+    /* =====================================================
+       BUTTON CONTAINER
+       ROW 4
+    ===================================================== */
+
+    #brochure .book-controls{
+
+        grid-column:
+            1 / 4 !important;
+
+        grid-row:
+            4 !important;
+
+        width:
+            100% !important;
+
+        margin:
+            12px 0 0 !important;
+
+        padding:
+            0 !important;
+
+        display:
+            flex !important;
+
+        flex-direction:
+            row !important;
+
+        align-items:
+            center !important;
+
+        justify-content:
+            center !important;
+
+        gap:
+            7px !important;
+
+        flex-wrap:
+            nowrap !important;
+
+        box-sizing:
+            border-box !important;
+
+    }
+
+
+    /* =====================================================
+       FULLSCREEN + DOWNLOAD
+    ===================================================== */
+
+    #brochure .fullscreen-btn,
+    #brochure .download-btn{
+
+        height:
+            40px !important;
+
+        min-height:
+            40px !important;
+
+        padding:
+            0 12px !important;
+
+        margin:
+            0 !important;
+
+        border-radius:
+            12px !important;
+
+        font:
+            700 10px Poppins,sans-serif !important;
+
+        white-space:
+            nowrap !important;
+
+        flex:
+            0 0 auto !important;
+
+    }
+
+
+    /* =====================================================
+       REMOVE EXTRA GLOW SPACE
+    ===================================================== */
+
+    #brochure .book-stage::before{
+
+        width:
+            80% !important;
+
+        height:
+            30px !important;
+
+        bottom:
+            -5px !important;
+
+        opacity:
+            .35 !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   360 / 375 / 390
+========================================================= */
+
+@media only screen and (max-width:390px){
+
+    #brochure{
+
+        padding:
+            14px 0 18px !important;
+
+    }
+
+
+    #brochure .book-stage{
+
+        padding:
+            0 6px !important;
+
+        grid-template-columns:
+            40px minmax(0,1fr) 40px !important;
+
+        column-gap:
+            3px !important;
+
+    }
+
+
+    #brochure .brochure-heading .sub-title{
+
+        font-size:
+            9px !important;
+
+        letter-spacing:
+            3.5px !important;
+
+    }
+
+
+    #brochure .brochure-heading h2{
+
+        font-size:
+            29px !important;
+
+        margin:
+            6px 0 12px !important;
+
+    }
+
+
+    #brochure .prev,
+    #brochure .next{
+
+        width:
+            38px !important;
+
+        height:
+            38px !important;
+
+        min-width:
+            38px !important;
+
+        min-height:
+            38px !important;
+
+        border-radius:
+            11px !important;
+
+    }
+
+
+    #brochure .book-controls{
+
+        margin-top:
+            10px !important;
+
+        gap:
+            5px !important;
+
+    }
+
+
+    #brochure .fullscreen-btn,
+    #brochure .download-btn{
+
+        height:
+            38px !important;
+
+        min-height:
+            38px !important;
+
+        padding:
+            0 9px !important;
+
+        font-size:
+            9px !important;
+
+        border-radius:
+            10px !important;
+
+    }
+
+}
