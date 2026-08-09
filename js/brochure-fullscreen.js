@@ -1,182 +1,794 @@
-/* brochure-fullscreen.js */
-document.addEventListener("DOMContentLoaded",()=>{
-if(typeof gsap==="undefined") return;
-const btn=document.querySelector(".fullscreen-btn");
-const book=document.querySelector(".flip-book");
-const img=document.getElementById("brochurePage");
-if(!btn||!book||!img) return;
+/* ==========================================================
+   brochure-fullscreen.js
+   Fullscreen + Zoom + Page Navigation + Close Button
+========================================================== */
 
-let zoom=1;
-const pages=[
-"assets/brochure/page1.jpg",
-"assets/brochure/page2.jpg",
-"assets/brochure/page3.jpg",
-"assets/brochure/page4.jpg",
-"assets/brochure/page5.jpg",
-"assets/brochure/page6.jpg",
-"assets/brochure/page7.jpg",
-"assets/brochure/page8.jpg"
-];
+document.addEventListener("DOMContentLoaded", () => {
 
-let current=0;
+    if (typeof gsap === "undefined") return;
 
-const toolbar=document.createElement("div");
-toolbar.style.cssText="position:fixed;top:20px;left:50%;transform:translateX(-50%);display:none;gap:10px;z-index:99999;background:rgba(20,20,20,.75);backdrop-filter:blur(12px);padding:10px 14px;border-radius:16px;border:1px solid rgba(212,175,55,.3)";
-toolbar.innerHTML=`
-<button id="zin">＋</button>
+    const btn = document.querySelector(".fullscreen-btn");
+    const book = document.querySelector(".flip-book");
+    const img = document.getElementById("brochurePage");
 
-<button id="zout">－</button>
+    if (!btn || !book || !img) return;
 
-<button id="zreset">100%</button>
 
-<button id="fexit">✕</button>
-`;
-document.body.appendChild(toolbar);
+    /* =====================================================
+       VARIABLES
+    ===================================================== */
 
-function showTB(){toolbar.style.display="flex";gsap.fromTo(toolbar,{y:-30,opacity:0},{y:0,opacity:1,duration:.3});}
-function hideTB(){toolbar.style.display="none";}
-function apply(){gsap.to(img,{scale:zoom,duration:.25});}
+    let zoom = 1;
 
-btn.onclick=async()=>{
- try{
-  if(!document.fullscreenElement){
-    await book.requestFullscreen();
-    showTB();
-  }else{
-    await document.exitFullscreen();
-  }
- }catch(e){}
-};
+    const pages = [
+        "assets/brochure/page1.jpg",
+        "assets/brochure/page2.jpg",
+        "assets/brochure/page3.jpg",
+        "assets/brochure/page4.jpg",
+        "assets/brochure/page5.jpg",
+        "assets/brochure/page6.jpg",
+        "assets/brochure/page7.jpg",
+        "assets/brochure/page8.jpg"
+    ];
 
-document.addEventListener("fullscreenchange",()=>{
- if(!document.fullscreenElement){zoom=1;apply();hideTB();}
-});
-function loadPage(){
+    let current = 0;
 
-gsap.to(img,{
-opacity:0,
-duration:.18,
-onComplete:()=>{
 
-img.src=pages[current];
+    /* =====================================================
+       FULLSCREEN TOOLBAR
+       IMPORTANT:
+       Toolbar is inside BOOK so it remains visible
+       when BOOK enters fullscreen.
+    ===================================================== */
 
-gsap.fromTo(img,
-{opacity:0,rotateY:20},
-{
-opacity:1,
-rotateY:0,
-duration:.45
-});
+    const toolbar = document.createElement("div");
 
-}
-});
+    toolbar.id = "brochureFullscreenToolbar";
 
-}
-const prevBtn=document.querySelector(".prev");
-const nextBtn=document.querySelector(".next");if(prevBtn){
+    toolbar.innerHTML = `
+        <button id="zin" type="button" aria-label="Zoom In">
+            +
+        </button>
 
-prevBtn.onclick=()=>{
+        <button id="zout" type="button" aria-label="Zoom Out">
+            −
+        </button>
 
-current--;
+        <button id="zreset" type="button" aria-label="Reset Zoom">
+            100%
+        </button>
 
-if(current<0)
-current=pages.length-1;
+        <button id="fexit" type="button" aria-label="Close Fullscreen">
+            ✕
+        </button>
+    `;
 
-loadPage();
+    /*
+       IMPORTANT:
+       Append inside book, NOT body.
+    */
 
-};
+    book.appendChild(toolbar);
 
-}
 
-if(nextBtn){
+    /* =====================================================
+       TOOLBAR CSS
+    ===================================================== */
 
-nextBtn.onclick=()=>{
+    const toolbarStyle = document.createElement("style");
 
-current++;
+    toolbarStyle.textContent = `
 
-if(current>=pages.length)
-current=0;
+        #brochureFullscreenToolbar{
 
-loadPage();
+            position:fixed;
 
-};
+            top:20px;
+            left:50%;
 
-}
+            transform:translateX(-50%);
 
-toolbar.querySelector("#zin").onclick=()=>{zoom=Math.min(3,zoom+.2);apply();};
-toolbar.querySelector("#zout").onclick=()=>{zoom=Math.max(.6,zoom-.2);apply();};
-toolbar.querySelector("#zreset").onclick=()=>{zoom=1;apply();};
-toolbar.querySelector("#fexit").onclick=()=>document.exitFullscreen?.();
+            display:none;
 
-document.addEventListener("keydown",e=>{
+            align-items:center;
+            justify-content:center;
 
-if(!document.fullscreenElement) return;
+            gap:10px;
 
-if(e.key==="ArrowRight"){
+            z-index:999999;
 
-current++;
+            padding:10px 14px;
 
-if(current>=pages.length)
-current=0;
+            border-radius:18px;
 
-loadPage();
+            background:rgba(20,20,20,.82);
 
-}
+            backdrop-filter:blur(14px);
+            -webkit-backdrop-filter:blur(14px);
 
-if(e.key==="ArrowLeft"){
+            border:1px solid rgba(212,175,55,.35);
 
-current--;
+            box-shadow:
+                0 15px 45px rgba(0,0,0,.5);
 
-if(current<0)
-current=pages.length-1;
+        }
 
-loadPage();
 
-}
+        #brochureFullscreenToolbar button{
 
-if(e.key==="Escape")
-document.exitFullscreen();
+            width:42px;
+            height:42px;
 
-if(e.key==="+"||e.key==="="){
-zoom=Math.min(3,zoom+.2);
-apply();
-}
+            border:none;
 
-if(e.key==="-"){
-zoom=Math.max(.6,zoom-.2);
-apply();
-}
+            border-radius:12px;
 
-});
-book.addEventListener("wheel",e=>{
+            display:flex;
 
-if(!document.fullscreenElement) return;
+            align-items:center;
+            justify-content:center;
 
-e.preventDefault();
+            background:rgba(255,255,255,.08);
 
-if(e.deltaY<0)
-zoom=Math.min(3,zoom+.1);
-else
-zoom=Math.max(.6,zoom-.1);
+            color:#f7df84;
 
-apply();
+            font:700 20px Poppins,sans-serif;
 
-});
-img.addEventListener("dblclick",()=>{
+            cursor:pointer;
 
-zoom=(zoom==1)?2:1;
+            transition:
+                transform .25s ease,
+                background .25s ease,
+                box-shadow .25s ease;
 
-apply();
+        }
 
-});
 
-let sx=0,sy=0,drag=false;
-img.style.cursor="grab";
-img.addEventListener("mousedown",e=>{if(!document.fullscreenElement)return;});
-img.addEventListener("mousedown",e=>{drag=true;sx=e.clientX;sy=e.clientY;});
-window.addEventListener("mousemove",e=>{
- if(!drag)return;
- img.style.transform=`translate(${e.clientX-sx}px,${e.clientY-sy}px) scale(${zoom})`;
-});
-window.addEventListener("mouseup",()=>{drag=false;});
+        #brochureFullscreenToolbar #zreset{
+
+            width:auto;
+
+            min-width:60px;
+
+            padding:0 12px;
+
+            font-size:13px;
+
+        }
+
+
+        #brochureFullscreenToolbar button:hover{
+
+            transform:translateY(-2px);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f7df84,
+                    #d4af37
+                );
+
+            color:#111;
+
+            box-shadow:
+                0 8px 25px
+                rgba(212,175,55,.4);
+
+        }
+
+
+        /* ===============================================
+           CLOSE BUTTON
+        =============================================== */
+
+        #brochureFullscreenToolbar #fexit{
+
+            width:48px;
+            height:48px;
+
+            margin-left:5px;
+
+            border-radius:50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f7df84,
+                    #d4af37,
+                    #b98a22
+                );
+
+            color:#111;
+
+            font-size:23px;
+            font-weight:900;
+
+            box-shadow:
+                0 8px 28px
+                rgba(212,175,55,.45);
+
+        }
+
+
+        #brochureFullscreenToolbar #fexit:hover{
+
+            transform:
+                scale(1.12)
+                rotate(90deg);
+
+            box-shadow:
+                0 12px 40px
+                rgba(212,175,55,.7);
+
+        }
+
+
+        /* ===============================================
+           MOBILE
+        =============================================== */
+
+        @media(max-width:640px){
+
+            #brochureFullscreenToolbar{
+
+                top:12px;
+
+                gap:7px;
+
+                padding:8px 10px;
+
+                border-radius:15px;
+
+            }
+
+
+            #brochureFullscreenToolbar button{
+
+                width:38px;
+                height:38px;
+
+                font-size:18px;
+
+                border-radius:10px;
+
+            }
+
+
+            #brochureFullscreenToolbar #zreset{
+
+                min-width:52px;
+
+                padding:0 8px;
+
+                font-size:11px;
+
+            }
+
+
+            #brochureFullscreenToolbar #fexit{
+
+                width:43px;
+                height:43px;
+
+                font-size:20px;
+
+                margin-left:3px;
+
+            }
+
+        }
+
+    `;
+
+    document.head.appendChild(toolbarStyle);
+
+
+    /* =====================================================
+       BUTTON REFERENCES
+    ===================================================== */
+
+    const zoomInBtn = toolbar.querySelector("#zin");
+    const zoomOutBtn = toolbar.querySelector("#zout");
+    const zoomResetBtn = toolbar.querySelector("#zreset");
+    const closeBtn = toolbar.querySelector("#fexit");
+
+
+    /* =====================================================
+       SHOW / HIDE TOOLBAR
+    ===================================================== */
+
+    function showTB(){
+
+        toolbar.style.display = "flex";
+
+        gsap.fromTo(
+            toolbar,
+            {
+                y:-30,
+                opacity:0
+            },
+            {
+                y:0,
+                opacity:1,
+                duration:.3
+            }
+        );
+
+    }
+
+
+    function hideTB(){
+
+        toolbar.style.display = "none";
+
+    }
+
+
+    /* =====================================================
+       ZOOM
+    ===================================================== */
+
+    function apply(){
+
+        gsap.to(img,{
+            scale:zoom,
+            duration:.25
+        });
+
+    }
+
+
+    /* =====================================================
+       FULLSCREEN OPEN
+    ===================================================== */
+
+    btn.onclick = async () => {
+
+        try{
+
+            if(!document.fullscreenElement){
+
+                await book.requestFullscreen();
+
+                showTB();
+
+            }
+            else{
+
+                await document.exitFullscreen();
+
+            }
+
+        }
+        catch(e){
+
+            console.error(
+                "Fullscreen error:",
+                e
+            );
+
+        }
+
+    };
+
+
+    /* =====================================================
+       CLOSE BUTTON
+    ===================================================== */
+
+    closeBtn.onclick = async () => {
+
+        try{
+
+            if(document.fullscreenElement){
+
+                await document.exitFullscreen();
+
+            }
+
+        }
+        catch(e){
+
+            console.error(
+                "Close fullscreen error:",
+                e
+            );
+
+        }
+
+    };
+
+
+    /* =====================================================
+       FULLSCREEN CHANGE
+    ===================================================== */
+
+    document.addEventListener(
+        "fullscreenchange",
+        () => {
+
+            if(document.fullscreenElement === book){
+
+                showTB();
+
+            }
+            else{
+
+                zoom = 1;
+
+                gsap.set(img,{
+                    scale:1,
+                    x:0,
+                    y:0
+                });
+
+                hideTB();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       PAGE LOAD
+    ===================================================== */
+
+    function loadPage(){
+
+        gsap.to(img,{
+
+            opacity:0,
+
+            duration:.18,
+
+            onComplete:()=>{
+
+                img.src = pages[current];
+
+                gsap.fromTo(
+                    img,
+                    {
+                        opacity:0,
+                        rotateY:20
+                    },
+                    {
+                        opacity:1,
+                        rotateY:0,
+                        duration:.45
+                    }
+                );
+
+            }
+
+        });
+
+    }
+
+
+    /* =====================================================
+       PREVIOUS / NEXT
+    ===================================================== */
+
+    const prevBtn =
+        document.querySelector(".prev");
+
+    const nextBtn =
+        document.querySelector(".next");
+
+
+    if(prevBtn){
+
+        prevBtn.onclick = () => {
+
+            current--;
+
+            if(current < 0){
+
+                current =
+                    pages.length - 1;
+
+            }
+
+            loadPage();
+
+        };
+
+    }
+
+
+    if(nextBtn){
+
+        nextBtn.onclick = () => {
+
+            current++;
+
+            if(current >= pages.length){
+
+                current = 0;
+
+            }
+
+            loadPage();
+
+        };
+
+    }
+
+
+    /* =====================================================
+       ZOOM BUTTONS
+    ===================================================== */
+
+    zoomInBtn.onclick = () => {
+
+        zoom =
+            Math.min(
+                3,
+                zoom + .2
+            );
+
+        apply();
+
+    };
+
+
+    zoomOutBtn.onclick = () => {
+
+        zoom =
+            Math.max(
+                .6,
+                zoom - .2
+            );
+
+        apply();
+
+    };
+
+
+    zoomResetBtn.onclick = () => {
+
+        zoom = 1;
+
+        apply();
+
+    };
+
+
+    /* =====================================================
+       KEYBOARD
+    ===================================================== */
+
+    document.addEventListener(
+        "keydown",
+        e => {
+
+            if(
+                document.fullscreenElement !== book
+            ){
+
+                return;
+
+            }
+
+
+            /* CLOSE */
+
+            if(e.key === "Escape"){
+
+                document.exitFullscreen();
+
+            }
+
+
+            /* NEXT */
+
+            if(e.key === "ArrowRight"){
+
+                current++;
+
+                if(current >= pages.length){
+
+                    current = 0;
+
+                }
+
+                loadPage();
+
+            }
+
+
+            /* PREVIOUS */
+
+            if(e.key === "ArrowLeft"){
+
+                current--;
+
+                if(current < 0){
+
+                    current =
+                        pages.length - 1;
+
+                }
+
+                loadPage();
+
+            }
+
+
+            /* ZOOM IN */
+
+            if(
+                e.key === "+" ||
+                e.key === "="
+            ){
+
+                zoom =
+                    Math.min(
+                        3,
+                        zoom + .2
+                    );
+
+                apply();
+
+            }
+
+
+            /* ZOOM OUT */
+
+            if(e.key === "-"){
+
+                zoom =
+                    Math.max(
+                        .6,
+                        zoom - .2
+                    );
+
+                apply();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       MOUSE WHEEL ZOOM
+    ===================================================== */
+
+    book.addEventListener(
+        "wheel",
+        e => {
+
+            if(
+                document.fullscreenElement !== book
+            ){
+
+                return;
+
+            }
+
+            e.preventDefault();
+
+
+            if(e.deltaY < 0){
+
+                zoom =
+                    Math.min(
+                        3,
+                        zoom + .1
+                    );
+
+            }
+            else{
+
+                zoom =
+                    Math.max(
+                        .6,
+                        zoom - .1
+                    );
+
+            }
+
+            apply();
+
+        },
+        {
+            passive:false
+        }
+    );
+
+
+    /* =====================================================
+       DOUBLE CLICK ZOOM
+    ===================================================== */
+
+    img.addEventListener(
+        "dblclick",
+        () => {
+
+            if(
+                document.fullscreenElement !== book
+            ){
+
+                return;
+
+            }
+
+            zoom =
+                zoom === 1
+                    ? 2
+                    : 1;
+
+            apply();
+
+        }
+    );
+
+
+    /* =====================================================
+       DRAG
+    ===================================================== */
+
+    let sx = 0;
+    let sy = 0;
+    let drag = false;
+
+
+    img.style.cursor = "grab";
+
+
+    img.addEventListener(
+        "mousedown",
+        e => {
+
+            if(
+                document.fullscreenElement !== book
+            ){
+
+                return;
+
+            }
+
+            drag = true;
+
+            sx = e.clientX;
+            sy = e.clientY;
+
+            img.style.cursor = "grabbing";
+
+        }
+    );
+
+
+    window.addEventListener(
+        "mousemove",
+        e => {
+
+            if(!drag) return;
+
+            const dx =
+                e.clientX - sx;
+
+            const dy =
+                e.clientY - sy;
+
+            img.style.transform =
+                `translate(${dx}px,${dy}px) scale(${zoom})`;
+
+        }
+    );
+
+
+    window.addEventListener(
+        "mouseup",
+        () => {
+
+            drag = false;
+
+            img.style.cursor = "grab";
+
+        }
+    );
+
 });
