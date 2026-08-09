@@ -204,3 +204,25 @@ to{transform:rotate(360deg) translateX(180px) rotate(-360deg);}
 #loader h1{padding:0 16px;}
 #loader h2{font-size:1rem;}
 }
+
+/* =========================================================
+   NAVBAR LOCK DURING CINEMATIC INTRO
+   MOBILE ONLY
+========================================================= */
+
+@media only screen and (max-width:768px){
+
+    body.intro-not-ready .glass-nav{
+
+        opacity:0 !important;
+	
+        visibility:hidden !important;
+
+        pointer-events:none !important;
+
+        transform:
+            translateY(-80px) !important;
+
+    }
+
+}
