@@ -29,12 +29,79 @@ max-height:92vh;
 object-fit:contain;
 border-radius:22px;
 background:#000;
-">
+"></video>
 <button id="nextBtn" style="position:absolute;right:30px;font-size:40px;">❯</button>
-<button id="closeBtn" style="position:absolute;top:20px;right:30px;font-size:34px;">✕</button>
+<button id="closeBtn" aria-label="Close video">
+    <i class="fa-solid fa-xmark"></i>
+</button>
 `;
 document.body.appendChild(modal);
+const closeBtn = modal.querySelector("#closeBtn");
 
+closeBtn.style.cssText = `
+    position:absolute;
+    top:22px;
+    right:28px;
+    width:52px;
+    height:52px;
+    border:none;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#f7df84,#d4af37,#b98a22);
+    color:#111;
+    font-size:24px;
+    font-weight:700;
+    cursor:pointer;
+    z-index:100002;
+    box-shadow:0 8px 30px rgba(212,175,55,.45);
+    transition:all .3s ease;
+`;
+
+closeBtn.addEventListener("mouseenter",()=>{
+    closeBtn.style.transform="scale(1.12) rotate(90deg)";
+    closeBtn.style.boxShadow="0 12px 40px rgba(212,175,55,.7)";
+});
+
+closeBtn.addEventListener("mouseleave",()=>{
+    closeBtn.style.transform="scale(1) rotate(0deg)";
+    closeBtn.style.boxShadow="0 8px 30px rgba(212,175,55,.45)";
+});
+const mobileStyle = document.createElement("style");
+
+mobileStyle.textContent = `
+@media(max-width:640px){
+
+    #closeBtn{
+        top:14px !important;
+        right:14px !important;
+        width:46px !important;
+        height:46px !important;
+        font-size:20px !important;
+    }
+
+    #theatreModal #modalVideo{
+        max-width:94vw !important;
+        max-height:82vh !important;
+        border-radius:14px !important;
+    }
+
+    #theatreModal #prevBtn{
+        left:8px !important;
+        font-size:28px !important;
+        z-index:100001;
+    }
+
+    #theatreModal #nextBtn{
+        right:8px !important;
+        font-size:28px !important;
+        z-index:100001;
+    }
+}
+`;
+
+document.head.appendChild(mobileStyle);
 const player=modal.querySelector("#modalVideo");
 let index=0;
 
